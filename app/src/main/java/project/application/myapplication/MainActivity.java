@@ -2,6 +2,8 @@ package project.application.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,17 +18,20 @@ public class MainActivity extends AppCompatActivity {
     private EditText enterBudgetOrExpenses;
     private Integer budget = 0;
     private TextView currentBudget;
-
+    private SpendingsDBOpenHelper mDB;
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        mDB = new SpendingsDBOpenHelper(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         addExpenses = findViewById(R.id.addExpenses);
         addBudget = findViewById(R.id.addBudget);
         enterBudgetOrExpenses = findViewById(R.id.enterBudgetOrExpenses);
         currentBudget = findViewById(R.id.curentbudget);
+        budget= mDB.query();
+        currentBudget.setText(budget.toString());
         addExpenses.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
