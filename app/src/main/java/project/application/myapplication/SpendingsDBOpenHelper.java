@@ -62,4 +62,18 @@ public class SpendingsDBOpenHelper extends SQLiteOpenHelper {
             return sum_spending;
         }
     }
+    public long insert(int spend){
+        long newId = 0;
+        ContentValues values = new ContentValues();
+        values.put(SPENDING_AMOUNT,spend);
+        try {
+            if (mWritableDB == null) {
+                mWritableDB = getWritableDatabase();
+            }
+            newId = mWritableDB.insert(SPENDINGS_LIST_TABLE, null, values);
+        } catch (Exception e) {
+            Log.d(TAG, "INSERT EXCEPTION! " + e.getMessage());
+        }
+        return newId;
+    }
 }

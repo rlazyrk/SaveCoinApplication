@@ -51,7 +51,8 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, R.string.emptyField, Toast.LENGTH_LONG).show();
                 }
                 else{
-                    budget += Integer.parseInt(enterBudgetOrExpenses.getText().toString().trim());
+                    mDB.insert(Integer.parseInt(enterBudgetOrExpenses.getText().toString().trim()));
+                    budget= mDB.query();
                     currentBudget.setText(budget.toString());
                 }
             }
