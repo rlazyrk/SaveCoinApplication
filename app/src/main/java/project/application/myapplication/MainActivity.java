@@ -2,8 +2,7 @@ package project.application.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +12,9 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    private Button goToMain;
+    private Button goToActivity_2;
+    private Button goToActivity_3;
     private Button addExpenses;
     private Button addBudget;
     private EditText enterBudgetOrExpenses;
@@ -26,6 +28,9 @@ public class MainActivity extends AppCompatActivity {
         mDB = new SpendingsDBOpenHelper(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        goToMain = findViewById(R.id.goToMain);
+        goToActivity_2 = findViewById(R.id.goToActivity_2);
+        goToActivity_3 = findViewById(R.id.goToActivity_3);
         addExpenses = findViewById(R.id.addExpenses);
         addBudget = findViewById(R.id.addBudget);
         enterBudgetOrExpenses = findViewById(R.id.enterBudgetOrExpenses);
@@ -57,6 +62,25 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+        goToActivity_2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent click = new Intent(MainActivity.this, Activity_2.class);
+                startActivity(click);
+            }
+        });
+        goToActivity_3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent click = new Intent(MainActivity.this,Activity_3.class);
+                startActivity(click);
+            }
+        });
+        goToMain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+            }
+        });
     }
 }
