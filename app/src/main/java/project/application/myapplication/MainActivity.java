@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         addBudget = findViewById(R.id.addBudget);
         enterBudgetOrExpenses = findViewById(R.id.enterBudgetOrExpenses);
         currentBudget = findViewById(R.id.curentbudget);
-        budget= mDB.query();
+        budget= mDB.query(1);
         currentBudget.setText(budget.toString());
         addExpenses.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,8 +56,8 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, R.string.emptyField, Toast.LENGTH_LONG).show();
                 }
                 else{
-                    mDB.insert(Integer.parseInt(enterBudgetOrExpenses.getText().toString().trim()));
-                    budget= mDB.query();
+                    mDB.insert(Integer.parseInt(enterBudgetOrExpenses.getText().toString().trim()),1);
+                    budget= mDB.query(1);
                     currentBudget.setText(budget.toString());
                 }
             }
