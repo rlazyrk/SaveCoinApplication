@@ -13,12 +13,14 @@ public class SpendingsDBOpenHelper extends SQLiteOpenHelper {
     private static final String SPENDINGS_LIST_TABLE = "spending_entries";
     private static final String DATABASE_NAME = "spendings";
     public static final String KEY_ID = "_id";
-    public static final String SPENDING_CATEGORY="category";
+    public static final String SPENDING_CATEGORY = "category";
     public static final String SPENDING_AMOUNT = "spending";
-    private static final String[] COLUMNS = { KEY_ID, SPENDING_AMOUNT ,SPENDING_CATEGORY};
+    private static final String[] COLUMNS = {KEY_ID, SPENDING_AMOUNT, SPENDING_CATEGORY};
+
     public SpendingsDBOpenHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
+
     private static final String SPENDING_TABLE_CREATE =
             "CREATE TABLE " + SPENDINGS_LIST_TABLE + " (" +
                     KEY_ID + " INTEGER PRIMARY KEY, " +
@@ -27,6 +29,7 @@ public class SpendingsDBOpenHelper extends SQLiteOpenHelper {
                     ");";
     private SQLiteDatabase mWritableDB;
     private SQLiteDatabase mReadableDB;
+
     @Override
     public void onCreate(SQLiteDatabase DB) {
         DB.execSQL(SPENDING_TABLE_CREATE);
@@ -36,6 +39,15 @@ public class SpendingsDBOpenHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
     }
+
+    public int querySum(int categ) {
+        int sum = 0;
+        for (int i = 1; i <= categ; i++) {
+            sum += query(i);
+        }
+        return sum;
+    }
+
     public int query(int categ) {
         String name_of_sum = "total_sum";
         String query = "SELECT SUM(" + SPENDING_AMOUNT + ") AS " + name_of_sum + " FROM " + SPENDINGS_LIST_TABLE
@@ -53,22 +65,23 @@ public class SpendingsDBOpenHelper extends SQLiteOpenHelper {
         } catch (Exception e) {
             Log.d(TAG, "QUERY EXCEPTION! " + e.getMessage());
         } finally {
-            if (cursor != null){
+            if (cursor != null) {
                 cursor.close();
             }
             return sum_spending;
         }
     }
-        private void fillDatabaseWithData(SQLiteDatabase db){
+
+    private void fillDatabaseWithData(SQLiteDatabase db) {
 
 
-        }
+    }
 
-    public long insert(int spend,int categ){
+    public long insert(int spend, int categ) {
         long newId = 0;
         ContentValues values = new ContentValues();
-        values.put(SPENDING_AMOUNT,spend);
-        values.put(SPENDING_CATEGORY,categ);
+        values.put(SPENDING_AMOUNT, spend);
+        values.put(SPENDING_CATEGORY, categ);
         try {
             if (mWritableDB == null) {
                 mWritableDB = getWritableDatabase();

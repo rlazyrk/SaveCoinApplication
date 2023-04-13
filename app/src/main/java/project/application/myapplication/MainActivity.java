@@ -2,6 +2,7 @@ package project.application.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -34,16 +35,15 @@ public class MainActivity extends AppCompatActivity {
         addExpenses = findViewById(R.id.addExpenses);
         addBudget = findViewById(R.id.addBudget);
         enterBudgetOrExpenses = findViewById(R.id.enterBudgetOrExpenses);
-        currentBudget = findViewById(R.id.curentbudget);
-        budget= mDB.query(1);
+        currentBudget = findViewById(R.id.currentBudget);
+        budget = mDB.query(7);
         currentBudget.setText(budget.toString());
         addExpenses.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(enterBudgetOrExpenses.getText().toString().trim().equals("")){
+                if (enterBudgetOrExpenses.getText().toString().trim().equals("")) {
                     Toast.makeText(MainActivity.this, R.string.emptyField, Toast.LENGTH_LONG).show();
-                }
-                else{
+                } else {
                     budget -= Integer.parseInt(enterBudgetOrExpenses.getText().toString().trim());
                     currentBudget.setText(budget.toString());
                 }
@@ -52,12 +52,11 @@ public class MainActivity extends AppCompatActivity {
         addBudget.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(enterBudgetOrExpenses.getText().toString().trim().equals("")){
+                if (enterBudgetOrExpenses.getText().toString().trim().equals("")) {
                     Toast.makeText(MainActivity.this, R.string.emptyField, Toast.LENGTH_LONG).show();
-                }
-                else{
-                    mDB.insert(Integer.parseInt(enterBudgetOrExpenses.getText().toString().trim()),1);
-                    budget= mDB.query(1);
+                } else {
+                    mDB.insert(Integer.parseInt(enterBudgetOrExpenses.getText().toString().trim()), 7);
+                    budget = mDB.query(7);
                     currentBudget.setText(budget.toString());
                 }
             }
@@ -72,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         goToActivity_3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent click = new Intent(MainActivity.this,Activity_3.class);
+                Intent click = new Intent(MainActivity.this, Activity_3.class);
                 startActivity(click);
             }
         });
