@@ -3,13 +3,20 @@ package project.application.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.app.AlarmManager;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import java.util.Calendar;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,12 +30,14 @@ public class MainActivity extends AppCompatActivity {
     private TextView currentBudget;
     private SpendingsDBOpenHelper mDB;
 
-
+    @SuppressLint("MissingInflatedId")
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        mDB = new SpendingsDBOpenHelper(this);
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mDB = new SpendingsDBOpenHelper(this);
+
         goToMain = findViewById(R.id.goToMain);
         goToActivity_2 = findViewById(R.id.goToActivity_2);
         goToActivity_3 = findViewById(R.id.goToActivity_3);
@@ -36,8 +45,10 @@ public class MainActivity extends AppCompatActivity {
         addBudget = findViewById(R.id.addBudget);
         enterBudgetOrExpenses = findViewById(R.id.enterBudgetOrExpenses);
         currentBudget = findViewById(R.id.currentBudget);
+
         budget = mDB.query(7);
         currentBudget.setText(budget.toString());
+
         addExpenses.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -49,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
         addBudget.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -61,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
         goToActivity_2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -68,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(click);
             }
         });
+
         goToActivity_3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -75,11 +89,43 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(click);
             }
         });
+
         goToMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
             }
         });
+
+        // Set up the notification channel
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = "Dwd";
+            String description = "TRWr";
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel channel = new NotificationChannel("Notification", name, importance);
+            channel.setDescription(description);
+
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
+
+        // Set up the daily alarm to send notifications
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.HOUR_OF_DAY, 10);
+        calendar.set(Calendar.MINUTE, 00);
+        calendar.set(Calendar.SECOND, 00);
+
+        if (Calendar.getInstance().after(calendar)) {
+            calendar.add(Calendar.DAY_OF_MONTH, 1);
+        }
+
+        Intent intent = new Intent(MainActivity.this, MemoBroadcast.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
+        }
     }
 }
