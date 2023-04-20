@@ -61,16 +61,18 @@
             android:text="GoToAct_3" />
     </LinearLayout>
 
-    <Button
-        android:onClick="push"
-        android:id="@+id/notification_button"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Виклик сповіщення"
-        tools:layout_editor_absoluteX="93dp"
-        tools:layout_editor_absoluteY="69dp" />
 
+    <Button
+        android:id="@+id/notification_button"
+        android:layout_width="257dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="72dp"
+        android:layout_weight="1"
+        android:onClick="push"
+        android:text="Виклик сповіщення"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/selectTimeBtn"
