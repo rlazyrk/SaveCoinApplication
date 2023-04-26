@@ -6,19 +6,32 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="472dp"
+        android:layout_height="847dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.351"
+        app:srcCompat="@drawable/background2"
+        tools:layout_editor_absoluteX="-31dp" />
+
     <Button
         android:id="@+id/addBudget"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
+        android:layout_width="120dp"
+        android:layout_height="88dp"
         android:layout_marginStart="140dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
-        android:text="@string/addBudget"
+        android:background="#00FFFFFF"
+        android:foreground="@drawable/budget_button_budget_sign_key_push_button_vector_clip_art_csp80567011"
+        android:text="a"
+        app:iconTintMode="multiply"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/addExpenses"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/enterBudgetOrExpenses"
-        app:layout_constraintVertical_bias="0.061" />
+        app:layout_constraintVertical_bias="0.017" />
 
     <EditText
         android:id="@+id/enterBudgetOrExpenses"
@@ -32,10 +45,11 @@
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.063" />
+
 
     <Button
         android:id="@+id/addExpenses"
@@ -43,26 +57,31 @@
         android:layout_height="48dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="140dp"
+        android:fontFamily="sans-serif-medium"
         android:text="@string/addExpenses"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/addBudget"
         app:layout_constraintTop_toBottomOf="@+id/enterBudgetOrExpenses"
-        app:layout_constraintVertical_bias="0.061" />
-
-
+        app:layout_constraintVertical_bias="0.048" />
 
     <TextView
         android:id="@+id/currentBudget"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="88dp"
+        android:layout_height="36dp"
         android:text="TextView"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addBudget" />
+        app:layout_constraintTop_toBottomOf="@+id/addBudget"
+        app:layout_constraintVertical_bias="0.606" />
 
     <LinearLayout
+        android:id="@+id/linearLayout4"
         android:layout_width="409dp"
         android:layout_height="38dp"
         android:layout_marginStart="1dp"
@@ -75,24 +94,28 @@
 
         <Button
             android:id="@+id/goToActivity_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="176dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="GoToAct_2" />
+            android:fontFamily="sans-serif-black"
+            android:text="Notifications" />
 
         <Button
             android:id="@+id/goToMain"
-            android:layout_width="wrap_content"
+            android:layout_width="56dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="GoToMain" />
+            android:background="#00FFFFFF"
+            android:foreground="@drawable/savecoin"
+            android:text="Main" />
 
         <Button
             android:id="@+id/goToActivity_3"
-            android:layout_width="wrap_content"
+            android:layout_width="179dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="GoToAct_3" />
+            android:fontFamily="sans-serif-black"
+            android:text="Categories" />
     </LinearLayout>
 
 
