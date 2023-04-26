@@ -3,12 +3,20 @@ package project.application.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.DashPathEffect;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+
+
+import java.text.FieldPosition;
+import java.text.Format;
+import java.text.ParsePosition;
+import java.util.Arrays;
 
 public class Activity_3 extends AppCompatActivity {
 
@@ -29,12 +37,15 @@ public class Activity_3 extends AppCompatActivity {
     private TextView viewType_3;
     private TextView viewType_4;
     private TextView viewType_5;
+
     private TextView viewSumOfAll;
     private Button goToMain;
     private Button goToActivity_2;
     private Button goToActivity_3;
     private SpendingsDBOpenHelper mDB;
     private Integer sumOfAllint = 0;
+
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -62,6 +73,21 @@ public class Activity_3 extends AppCompatActivity {
         viewType_4.setText(expensesType_4.toString());
         viewType_5.setText(expensesType_5.toString());
         sumOfAllint = mDB.querySum(5);
+        expensesType_1 = mDB.query(1);
+        expensesType_2 = mDB.query(2);
+        expensesType_3 = mDB.query(3);
+        expensesType_4 = mDB.query(4);
+        expensesType_5 = mDB.query(5);
+        viewType_1.setText(expensesType_1.toString());
+        viewType_2.setText(expensesType_2.toString());
+        viewType_3.setText(expensesType_3.toString());
+        viewType_4.setText(expensesType_4.toString());
+        viewType_5.setText(expensesType_5.toString());
+
+
+
+
+
         viewSumOfAll.setText(sumOfAllint.toString());
         btnType_1.setOnClickListener(new View.OnClickListener() {
             @Override

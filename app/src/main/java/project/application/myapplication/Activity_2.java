@@ -55,6 +55,8 @@ public class Activity_2 extends AppCompatActivity {
         notificationButton = findViewById(R.id.notification_button);
 
 
+
+
         binding.selectTimeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -156,7 +158,7 @@ public class Activity_2 extends AppCompatActivity {
 
                 if (picker.getHour() > 12) {
 
-                    binding.selectedTime.setText(
+                    binding.selectTimeBtn.setText(
                             String.format("%02d", (picker.getHour() - 12)) + " : " + String.format("%02d", picker.getMinute()) + " PM"
                     );
 
