@@ -11,9 +11,9 @@
         android:layout_width="516dp"
         android:layout_height="823dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/background3"
-        tools:layout_editor_absoluteY="-12dp" />
+        tools:layout_editor_absoluteY="-62dp" />
 
     <Button
         android:id="@+id/notification_button"
