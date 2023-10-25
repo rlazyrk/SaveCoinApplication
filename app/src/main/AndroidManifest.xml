@@ -21,9 +21,6 @@
             android:name=".LineChartActivity"
             android:exported="false" />
         <activity
-            android:name=".NotificationActivity"
-            android:exported="false" />
-        <activity
             android:name=".Activity_3"
             android:exported="false"
             android:label="@string/title_activity_3"
@@ -33,9 +30,7 @@
             android:exported="false"
             android:label="@string/title_activity_2"
             android:theme="@style/Theme.MyApplication.NoActionBar" />
-        <activity
-            android:name=".NotificationOpen"
-            android:exported="true" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -46,15 +41,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".CreateEventActivity"
+            android:parentActivityName=".Activity_2"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="project.application.myapplication.Activity_2" />
+        </activity>
+        <activity
+            android:name=".SelectDateAndTimeActivity"
+            android:parentActivityName=".CreateEventActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="project.application.myapplication.CreateEventActivity" />
+        </activity>
 
-        <receiver
-            android:name=".MemoBroadcast"
-            android:enabled="true"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-            </intent-filter>
-        </receiver>
+
+
     </application>
 
 </manifest>
