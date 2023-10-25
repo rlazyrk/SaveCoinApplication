@@ -1,15 +1,10 @@
 package project.application.myapplication;
 
-import android.annotation.SuppressLint;
-import android.app.AlarmManager;
 import android.app.AlertDialog;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,10 +12,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.Calendar;
-
-
 public class MainActivity extends AppCompatActivity {
+
+    float x1, x2, y1, y2;
 
     private Button goToMain;
     private Button goToActivity_2;
@@ -32,11 +26,11 @@ public class MainActivity extends AppCompatActivity {
     private TextView currentBudget;
     private SpendingsDBOpenHelper mDB;
 
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         mDB = new SpendingsDBOpenHelper(this);
 
@@ -50,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
 
         budget = mDB.query(7);
         currentBudget.setText(budget.toString());
+
+
 
         addExpenses.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -118,5 +114,30 @@ public class MainActivity extends AppCompatActivity {
                 })
                 .setNegativeButton("No",null)
                 .show();
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        switch (event.getAction()){
+            case MotionEvent.ACTION_DOWN:
+                x1 = event.getX();
+                y1 = event.getY();
+                break;
+            case MotionEvent.ACTION_UP:
+                x2 = event.getX();
+                y2 = event.getY();
+                if(x1 < x2){
+                    Intent i = new Intent(MainActivity.this, Activity_2.class);
+                    startActivity(i);
+                    overridePendingTransition(R.xml.slide_right_start, R.xml.slide_right_end);
+                }
+                else if (x1 > x2){
+
+                    Intent i = new Intent(MainActivity.this, Activity_3.class);
+                    startActivity(i);
+                    overridePendingTransition(R.xml.slide_left_start, R.xml.slide_left_end);
+                }
+        }
+        return false;
     }
 }
