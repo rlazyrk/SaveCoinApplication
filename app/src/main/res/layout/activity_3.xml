@@ -4,93 +4,555 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#26292B"
     tools:context=".Activity_3">
-
 
     <ImageView
         android:id="@+id/imageView11"
-        android:layout_width="600dp"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.629"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        android:background="#26292B"/>
 
-    <LinearLayout
-        android:id="@+id/linearLayout3"
-        android:layout_width="44dp"
-        android:layout_height="220dp"
-        android:layout_marginTop="95dp"
-        android:orientation="vertical"
-        app:layout_constraintStart_toEndOf="@+id/linearLayout"
-        app:layout_constraintTop_toBottomOf="@+id/enterType_1">
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#26292B"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.09"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/imageView1111"
+            android:layout_width="90dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="67dp"
+            android:layout_marginTop="45dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/round_rectangle_right" />
+
+        <TextView
+            android:id="@+id/viewType_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="84dp"
+            android:layout_marginTop="57dp"
+            android:textAlignment="center"
+            android:text="cafe"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+        <ImageButton
+            android:id="@+id/frame1"
+            android:layout_width="77dp"
+            android:layout_height="77dp"
+            android:layout_marginTop="30dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/circle_w_corner"
+            android:text="food" />
+
+        <Button
+            android:id="@+id/addType_1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="43dp"
+            android:background="@drawable/restaurant"
+            android:importantForAccessibility="no" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frameLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#26292B"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.85"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/imageView12"
+            android:layout_width="90dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="65dp"
+            android:layout_marginTop="45dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/round_rectangle_right" />
+
+        <TextView
+            android:id="@+id/viewType_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="85dp"
+            android:layout_marginTop="57dp"
+            android:textAlignment="center"
+            android:text="home"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
 
         <ImageView
-            android:id="@+id/imageView6"
-            android:layout_width="40dp"
-            android:layout_height="39dp"
-            android:layout_marginEnd="94dp"
-            app:srcCompat="@drawable/a34" />
+            android:id="@+id/frame2"
+            android:layout_width="77dp"
+            android:layout_height="77dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="30dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/circle_w_corner" />
+
+        <Button
+            android:id="@+id/addType_2"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="42dp"
+            android:background="@drawable/home"
+            android:importantForAccessibility="no" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frameLayout3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="110dp"
+        android:background="#26292B"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.09"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/imageView13"
+            android:layout_width="90dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="67dp"
+            android:layout_marginTop="22dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/round_rectangle_right" />
+
+        <TextView
+            android:id="@+id/viewType_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="83dp"
+            android:layout_marginTop="34dp"
+            android:textAlignment="center"
+            android:text="transp"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
 
         <ImageView
-            android:id="@+id/imageView8"
-            android:layout_width="40dp"
-            android:layout_height="34dp" />
+            android:id="@+id/frame3"
+            android:layout_width="77dp"
+            android:layout_height="77dp"
+            android:layout_marginTop="10dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/circle_w_corner"
+            android:importantForAccessibility="no" />
+
+        <Button
+            android:id="@+id/addType_3"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/bus"
+            android:importantForAccessibility="no" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frameLayout4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="110dp"
+        android:background="#26292B"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.85"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/imageView14"
+            android:layout_width="90dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="65dp"
+            android:layout_marginTop="22dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/round_rectangle_right" />
+
+        <TextView
+            android:id="@+id/viewType_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="85dp"
+            android:layout_marginTop="34dp"
+            android:text="food"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
 
         <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="40dp"
-            android:layout_height="34dp"
-            app:srcCompat="@drawable/a56" />
+            android:id="@+id/frame4"
+            android:layout_width="77dp"
+            android:layout_height="77dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="10dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/circle_w_corner" />
+
+        <Button
+            android:id="@+id/addType_4"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="23dp"
+            android:background="@drawable/products"
+            android:importantForAccessibility="no" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frameLayout5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:background="#26292B"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.09"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/imageView15"
+            android:layout_width="90dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="67dp"
+            android:layout_marginTop="22dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/round_rectangle_right" />
+
+        <TextView
+            android:id="@+id/viewType_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="83dp"
+            android:layout_marginTop="34dp"
+            android:text="repair"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
 
         <ImageView
             android:id="@+id/imageView5"
-            android:layout_width="40dp"
-            android:layout_height="36dp"
-            app:srcCompat="@drawable/football_1" />
+            android:layout_width="77dp"
+            android:layout_height="77dp"
+            android:layout_marginTop="10dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/circle_w_corner" />
+
+        <Button
+            android:id="@+id/addType_5"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="23dp"
+            android:background="@drawable/car"
+            android:importantForAccessibility="no" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frameLayout6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:background="#26292B"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.85"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/imageView16"
+            android:layout_width="90dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="65dp"
+            android:layout_marginTop="22dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/round_rectangle_right" />
+
+        <TextView
+            android:id="@+id/viewType_6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="85dp"
+            android:layout_marginTop="34dp"
+            android:text="pills"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
 
         <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="40dp"
-            android:layout_height="34dp"
-            app:srcCompat="@drawable/a12" />
+            android:id="@+id/imageView6"
+            android:layout_width="77dp"
+            android:layout_height="77dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="10dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/circle_w_corner" />
 
-    </LinearLayout>
+        <Button
+            android:id="@+id/addType_6"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/pills"
+            android:importantForAccessibility="no" />
+    </FrameLayout>
 
-
-    <TextView
-        android:id="@+id/viewSumOfAll"
-        android:layout_width="99dp"
-        android:layout_height="29dp"
-        android:layout_marginTop="88dp"
-        android:text="Your total"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+    <FrameLayout
+        android:id="@+id/frameLayout7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="290dp"
+        android:background="#26292B"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.09"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
-    <EditText
-        android:id="@+id/enterType_1"
-        android:layout_width="192dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="50dp"
-        android:ems="10"
-        android:hint="@string/addExpensesType"
-        android:inputType="number"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textSize="20sp"
+        <TextView
+            android:id="@+id/imageView17"
+            android:layout_width="90dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="67dp"
+            android:layout_marginTop="22dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/round_rectangle_right" />
+
+        <TextView
+            android:id="@+id/viewType_7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="84dp"
+            android:layout_marginTop="34dp"
+            android:text="wear"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+        <TextView
+            android:id="@+id/imageView7"
+            android:layout_width="77dp"
+            android:layout_height="77dp"
+            android:layout_marginTop="10dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/circle_w_corner" />
+
+        <Button
+            android:id="@+id/addType_7"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/clothes1"
+            android:importantForAccessibility="no" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frameLayout8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="290dp"
+        android:background="#26292B"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.85"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/imageView18"
+            android:layout_width="90dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="65dp"
+            android:layout_marginTop="22dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/round_rectangle_right" />
+
+        <TextView
+            android:id="@+id/viewType_8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="85dp"
+            android:layout_marginTop="34dp"
+            android:text="pet"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+        <TextView
+            android:id="@+id/imageView8"
+            android:layout_width="77dp"
+            android:layout_height="77dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="10dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/circle_w_corner" />
+
+        <Button
+            android:id="@+id/addType_8"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="23dp"
+            android:background="@drawable/pet"
+            android:importantForAccessibility="no" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frameLayout9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="380dp"
+        android:background="#26292B"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.09"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/imageView19"
+            android:layout_width="90dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="65dp"
+            android:layout_marginTop="22dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/round_rectangle_right" />
+
+        <TextView
+            android:id="@+id/viewType_9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="84dp"
+            android:layout_marginTop="34dp"
+            android:text="gift"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+        <TextView
+            android:id="@+id/imageView9"
+            android:layout_width="77dp"
+            android:layout_height="77dp"
+            android:layout_marginTop="10dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/circle_w_corner" />
+
+        <Button
+            android:id="@+id/addType_9"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="23dp"
+            android:background="@drawable/gift"
+            android:importantForAccessibility="no" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frameLayout10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="380dp"
+        android:background="#26292B"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.85"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/imageView20"
+            android:layout_width="90dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="65dp"
+            android:layout_marginTop="22dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/round_rectangle_right" />
+
+        <TextView
+            android:id="@+id/text10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="85dp"
+            android:layout_marginTop="34dp"
+            android:text="add"
+            android:textSize="18sp"
+            tools:ignore="HardcodedText"
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+        <ImageView
+            android:id="@+id/imageView10"
+            android:layout_width="77dp"
+            android:layout_height="77dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="10dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/circle_w_corner" />
+
+        <ImageView
+            android:id="@+id/icon10"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="23dp"
+            android:src="@drawable/add"
+            android:importantForAccessibility="no" />
+    </FrameLayout>
+
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="409dp"
-        android:layout_height="38dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginStart="1dp"
         android:layout_marginEnd="1dp"
         android:layout_marginBottom="1dp"
@@ -99,119 +561,115 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <Button
-            android:id="@+id/goToActivity_2"
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="425dp"
+        android:orientation="vertical"
+        android:layout_marginLeft="120dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout">
+
+        <TextView
+            android:id="@+id/textForSum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Notifications" />
+            android:text="Total Spending:"
+            android:textColor="@color/white"
+            android:textSize="23sp"
+            tools:layout_editor_absoluteX="160dp"
+            tools:layout_editor_absoluteY="365dp"
+            tools:ignore="HardcodedText,MissingConstraints" />
+
+        <TextView
+            android:id="@+id/viewSumOfAll"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Price..."
+            android:textColor="@color/white"
+            android:textSize="23sp"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="40dp"
+            tools:ignore="HardcodedText,MissingConstraints" />
+
+    </FrameLayout>
+
+
+    <EditText
+        android:id="@+id/enterType_1"
+        android:layout_width="192dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="470dp"
+        android:ems="10"
+        android:textColor="@color/white"
+        android:hint="@string/addExpensesType"
+        android:inputType="number"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColorHint="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_rectangle_top"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <Button
+            android:id="@+id/goToActivity_2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="42dp"
+            android:layout_marginTop="11dp"
+            android:importantForAccessibility="no"
+            android:background="@drawable/calendar"/>
+
+        <FrameLayout
+            android:layout_width="137dp"
+            android:layout_height="70dp"
+            android:background="#2F3136"
+            android:layout_marginLeft="42dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
+
+            <Button
+                android:id="@+id/goToActivity_3"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="37dp"
+                android:layout_marginTop="8dp"
+                android:importantForAccessibility="no"
+                android:background="@drawable/wallet" />
+        </FrameLayout>
 
         <Button
             android:id="@+id/goToMain"
-            android:layout_width="110dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Main" />
-
-        <Button
-            android:id="@+id/goToActivity_3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Categories" />
-
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="38dp"
+            android:layout_marginTop="13dp"
+            android:importantForAccessibility="no"
+            android:background="@drawable/aim" />
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="228dp"
-        android:layout_height="250dp"
-        android:layout_marginTop="95dp"
-        android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/enterType_1">
-
-        <Button
-            android:id="@+id/addType_1"
-            android:layout_width="146dp"
-            android:layout_height="40dp"
-
-            android:text="food" />
-
-        <Button
-            android:id="@+id/addType_2"
-            android:layout_width="146dp"
-            android:layout_height="40dp"
-            android:text="Entertainment"
-            tools:text="Entertainment" />
-
-        <Button
-            android:id="@+id/addType_3"
-            android:layout_width="146dp"
-            android:layout_height="40dp"
-            android:text="clothes" />
-
-        <Button
-            android:id="@+id/addType_4"
-            android:layout_width="146dp"
-            android:layout_height="40dp"
-            android:text="transport" />
-
-        <Button
-            android:id="@+id/addType_5"
-            android:layout_width="146dp"
-            android:layout_height="40dp"
-            android:text="sport" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="60dp"
-        android:layout_height="250dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="95dp"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/linearLayout3"
-        app:layout_constraintTop_toBottomOf="@+id/enterType_1">
-
-        <TextView
-            android:id="@+id/viewType_1"
-            android:layout_width="105dp"
-            android:layout_height="32dp"
-            android:text="Food"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-        <TextView
-            android:id="@+id/viewType_2"
-            android:layout_width="72dp"
-            android:layout_height="25dp"
-            android:text="Entertaiment"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:layout_editor_absoluteY="221dp" />
-
-        <TextView
-            android:id="@+id/viewType_3"
-            android:layout_width="48dp"
-            android:layout_height="32dp"
-            android:text="Clothes"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:layout_editor_absoluteY="135dp" />
-
-        <TextView
-            android:id="@+id/viewType_4"
-            android:layout_width="97dp"
-            android:layout_height="38dp"
-            android:text="Transport" />
-
-        <TextView
-            android:id="@+id/viewType_5"
-            android:layout_width="match_parent"
-            android:layout_height="36dp"
-            android:text="Sport"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
