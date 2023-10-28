@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/colorPrimary"
+    android:background="#26292B"
     tools:context="project.application.myapplication.Activity_2">
 
     <androidx.appcompat.widget.Toolbar
@@ -27,7 +27,7 @@
     <org.hugoandrade.calendarviewlib.CalendarView
         android:id="@+id/calendarView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="400dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         app:content_background_color="#fff"
         app:week_header_background_color="#fff"
