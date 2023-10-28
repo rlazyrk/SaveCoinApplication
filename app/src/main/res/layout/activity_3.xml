@@ -4,83 +4,91 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".Activity_3">
+
 
     <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="472dp"
-        android:layout_height="847dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.351"
-        tools:layout_editor_absoluteX="-31dp" />
-
-    <Button
-        android:id="@+id/addBudget"
-        android:layout_width="120dp"
-        android:layout_height="88dp"
-        android:layout_marginStart="140dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:background="#00FFFFFF"
-        android:foreground="@drawable/budget_button_budget_sign_key_push_button_vector_clip_art_csp80567011"
-        android:text="a"
-        app:iconTintMode="multiply"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/addExpenses"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/enterBudgetOrExpenses"
-        app:layout_constraintVertical_bias="0.017" />
-
-    <EditText
-        android:id="@+id/enterBudgetOrExpenses"
-        android:layout_width="400sp"
-        android:layout_height="80dp"
-        android:layout_marginTop="40sp"
-        android:ems="10"
-        android:hint="@string/hintEnterBudgetOrExpenses"
-        android:inputType="number"
-        android:textAlignment="center"
-        android:textSize="25sp"
+        android:id="@+id/imageView11"
+        android:layout_width="600dp"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintHorizontal_bias="0.629"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.063" />
-
-
-    <Button
-        android:id="@+id/addExpenses"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="140dp"
-        android:fontFamily="sans-serif-medium"
-        android:text="@string/addExpenses"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/addBudget"
-        app:layout_constraintTop_toBottomOf="@+id/enterBudgetOrExpenses"
-        app:layout_constraintVertical_bias="0.048" />
-
-    <TextView
-        android:id="@+id/currentBudget"
-        android:layout_width="88dp"
-        android:layout_height="36dp"
-        android:text="TextView"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addBudget"
-        app:layout_constraintVertical_bias="0.606" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <LinearLayout
-        android:id="@+id/linearLayout4"
+        android:id="@+id/linearLayout3"
+        android:layout_width="44dp"
+        android:layout_height="220dp"
+        android:layout_marginTop="95dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout"
+        app:layout_constraintTop_toBottomOf="@+id/enterType_1">
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="40dp"
+            android:layout_height="39dp"
+            android:layout_marginEnd="94dp"
+            app:srcCompat="@drawable/a34" />
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="40dp"
+            android:layout_height="34dp" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="40dp"
+            android:layout_height="34dp"
+            app:srcCompat="@drawable/a56" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="40dp"
+            android:layout_height="36dp"
+            app:srcCompat="@drawable/football_1" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="40dp"
+            android:layout_height="34dp"
+            app:srcCompat="@drawable/a12" />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/viewSumOfAll"
+        android:layout_width="99dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="88dp"
+        android:text="Your total"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+
+    <EditText
+        android:id="@+id/enterType_1"
+        android:layout_width="192dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="50dp"
+        android:ems="10"
+        android:hint="@string/addExpensesType"
+        android:inputType="number"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="409dp"
         android:layout_height="38dp"
         android:layout_marginStart="1dp"
@@ -93,29 +101,117 @@
 
         <Button
             android:id="@+id/goToActivity_2"
-            android:layout_width="176dp"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:fontFamily="sans-serif-black"
             android:text="Notifications" />
 
         <Button
             android:id="@+id/goToMain"
-            android:layout_width="56dp"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="#00FFFFFF"
-            android:foreground="@drawable/savecoin"
             android:text="Main" />
 
         <Button
             android:id="@+id/goToActivity_3"
-            android:layout_width="179dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:fontFamily="sans-serif-black"
             android:text="Categories" />
+
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="228dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="95dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/enterType_1">
+
+        <Button
+            android:id="@+id/addType_1"
+            android:layout_width="146dp"
+            android:layout_height="40dp"
+
+            android:text="food" />
+
+        <Button
+            android:id="@+id/addType_2"
+            android:layout_width="146dp"
+            android:layout_height="40dp"
+            android:text="Entertainment"
+            tools:text="Entertainment" />
+
+        <Button
+            android:id="@+id/addType_3"
+            android:layout_width="146dp"
+            android:layout_height="40dp"
+            android:text="clothes" />
+
+        <Button
+            android:id="@+id/addType_4"
+            android:layout_width="146dp"
+            android:layout_height="40dp"
+            android:text="transport" />
+
+        <Button
+            android:id="@+id/addType_5"
+            android:layout_width="146dp"
+            android:layout_height="40dp"
+            android:text="sport" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="60dp"
+        android:layout_height="250dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="95dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout3"
+        app:layout_constraintTop_toBottomOf="@+id/enterType_1">
+
+        <TextView
+            android:id="@+id/viewType_1"
+            android:layout_width="105dp"
+            android:layout_height="32dp"
+            android:text="Food"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/viewType_2"
+            android:layout_width="72dp"
+            android:layout_height="25dp"
+            android:text="Entertaiment"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:layout_editor_absoluteY="221dp" />
+
+        <TextView
+            android:id="@+id/viewType_3"
+            android:layout_width="48dp"
+            android:layout_height="32dp"
+            android:text="Clothes"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:layout_editor_absoluteY="135dp" />
+
+        <TextView
+            android:id="@+id/viewType_4"
+            android:layout_width="97dp"
+            android:layout_height="38dp"
+            android:text="Transport" />
+
+        <TextView
+            android:id="@+id/viewType_5"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:text="Sport"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
