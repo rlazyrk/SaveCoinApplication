@@ -10,6 +10,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Space;
 
@@ -29,6 +30,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class Activity_2 extends AppCompatActivity {
 
+    float x1, x2, y1, y2;
     private final static int CREATE_EVENT_REQUEST_CODE = 100;
 
     private String[] mShortMonths;
@@ -223,6 +225,29 @@ public class Activity_2 extends AppCompatActivity {
                 event.getDate(),
                 event.getColor(),
                 event.isCompleted() ? Color.TRANSPARENT : Color.RED);
+    }
+
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        switch (event.getAction()){
+            case MotionEvent.ACTION_DOWN:
+                x1 = event.getX();
+                y1 = event.getY();
+                break;
+            case MotionEvent.ACTION_UP:
+                x2 = event.getX();
+                y2 = event.getY();
+                if(x1 < x2){
+                    return false;
+                }
+                else if (x1 > x2){
+                    Intent i = new Intent(Activity_2.this, MainActivity.class);
+                    startActivity(i);
+                    overridePendingTransition(R.xml.slide_left_start, R.xml.slide_left_end);
+                }
+        }
+        return false;
     }
 
 }
