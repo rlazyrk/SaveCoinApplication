@@ -51,6 +51,15 @@
 
 
     <Button
+        android:id="@+id/notificationButton"
+        android:layout_width="185dp"
+        android:layout_height="61dp"
+        android:layout_centerInParent="true"
+        android:text="Show Notification"
+        tools:layout_editor_absoluteX="113dp"
+        tools:layout_editor_absoluteY="347dp" />
+
+    <Button
         android:id="@+id/addExpenses"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
