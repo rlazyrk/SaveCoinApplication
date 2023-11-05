@@ -898,7 +898,7 @@ public class CalendarView extends FrameLayout {
         private Calendar mDatetime;
         //private int mPrimaryColor;
         //private int mSecondaryColor;
-        private int text;
+        private String text;
         private int bgColor;
 
 //        public CalendarObject(String id, Calendar datetime, int primaryColor, int secondaryColor) {
@@ -909,7 +909,7 @@ public class CalendarView extends FrameLayout {
 //        }
 
 
-        public CalendarObject(String mID, Calendar mDatetime, int text, int bgColor) {
+        public CalendarObject(String mID, Calendar mDatetime, String text, int bgColor) {
             this.mID = mID;
             this.mDatetime = mDatetime;
             this.text = text;
@@ -933,7 +933,7 @@ public class CalendarView extends FrameLayout {
 //        }
 
 
-        public int getText() {
+        String getText() {
             return text;
         }
 
