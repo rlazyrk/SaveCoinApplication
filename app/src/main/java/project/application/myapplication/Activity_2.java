@@ -221,8 +221,9 @@ public class Activity_2 extends AppCompatActivity {
         return new CalendarView.CalendarObject(
                 event.getID(),
                 event.getDate(),
-                event.getColor(),
-                event.isCompleted() ? Color.TRANSPARENT : Color.RED);
+                event.getTitle(),
+                event.getColor());
+
     }
 
 }
