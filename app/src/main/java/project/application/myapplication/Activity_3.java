@@ -1,22 +1,17 @@
 package project.application.myapplication;
 
+import static java.lang.Math.abs;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.DashPathEffect;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
-
-
-import java.text.FieldPosition;
-import java.text.Format;
-import java.text.ParsePosition;
-import java.util.Arrays;
 
 public class Activity_3 extends AppCompatActivity {
 
@@ -57,6 +52,7 @@ public class Activity_3 extends AppCompatActivity {
     private Button goToActivity_3;
     private SpendingsDBOpenHelper mDB;
     private Integer sumOfAllint = 0;
+    private float x1, x2, y1, y2;
 
 
     @Override
@@ -270,5 +266,29 @@ public class Activity_3 extends AppCompatActivity {
                 startActivity(click);
             }
         });
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                x1 = event.getX();
+                y1 = event.getY();
+                break;
+            case MotionEvent.ACTION_UP:
+                x2 = event.getX();
+                y2 = event.getY();
+                if (x1 < x2 && abs(x1-x2)>300) {
+                    Intent i = new Intent(Activity_3.this, Activity_2.class);
+                    startActivity(i);
+                    overridePendingTransition(R.xml.slide_right_start, R.xml.slide_right_end);
+                } else if (x1 > x2 && abs(x1-x2)>300) {
+
+                    Intent i = new Intent(Activity_3.this, MainActivity.class);
+                    startActivity(i);
+                    overridePendingTransition(R.xml.slide_left_start, R.xml.slide_left_end);
+                }
+        }
+        return false;
     }
 }

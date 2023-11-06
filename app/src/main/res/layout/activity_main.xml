@@ -6,48 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="472dp"
-        android:layout_height="847dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.351"
-        tools:layout_editor_absoluteX="-31dp" />
-
     <Button
-        android:id="@+id/addBudget"
-        android:layout_width="120dp"
-        android:layout_height="88dp"
-        android:layout_marginStart="140dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:background="#00FFFFFF"
-        android:foreground="@drawable/budget_button_budget_sign_key_push_button_vector_clip_art_csp80567011"
-        android:text="a"
-        app:iconTintMode="multiply"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/addExpenses"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/enterBudgetOrExpenses"
-        app:layout_constraintVertical_bias="0.017" />
-
-    <EditText
-        android:id="@+id/enterBudgetOrExpenses"
-        android:layout_width="400sp"
-        android:layout_height="80dp"
-        android:layout_marginTop="40sp"
-        android:ems="10"
-        android:hint="@string/hintEnterBudgetOrExpenses"
-        android:inputType="number"
-        android:textAlignment="center"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.454"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.063" />
+        android:id="@+id/showInputDialogButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ввести дані цілі" />
 
 
     <Button
@@ -56,37 +19,15 @@
         android:layout_height="61dp"
         android:layout_centerInParent="true"
         android:text="Show Notification"
-        tools:layout_editor_absoluteX="113dp"
-        tools:layout_editor_absoluteY="347dp" />
-
-    <Button
-        android:id="@+id/addExpenses"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="140dp"
-        android:fontFamily="sans-serif-medium"
-        android:text="@string/addExpenses"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/addBudget"
-        app:layout_constraintTop_toBottomOf="@+id/enterBudgetOrExpenses"
-        app:layout_constraintVertical_bias="0.048" />
-
-    <TextView
-        android:id="@+id/currentBudget"
-        android:layout_width="88dp"
-        android:layout_height="36dp"
-        android:text="TextView"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addBudget"
-        app:layout_constraintVertical_bias="0.606" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.57" />
+
+
+
+
 
     <LinearLayout
         android:id="@+id/linearLayout4"
