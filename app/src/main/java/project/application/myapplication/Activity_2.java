@@ -2,16 +2,17 @@ package project.application.myapplication;
 
 
 
+import static java.lang.Math.abs;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Space;
+
 
 import org.hugoandrade.calendarviewlib.CalendarView;
 import java.text.DateFormatSymbols;
@@ -21,10 +22,6 @@ import java.util.List;
 import java.util.Objects;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
-import androidx.core.widget.NestedScrollView;
-
-import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class Activity_2 extends AppCompatActivity {
@@ -34,6 +31,7 @@ public class Activity_2 extends AppCompatActivity {
     private String[] mShortMonths;
     private CalendarView mCalendarView;
     private CalendarDialog mCalendarDialog;
+    private float x1,x2,y1,y2;
 
     private List<Event> mEventList = new ArrayList<>();
 
@@ -224,6 +222,25 @@ public class Activity_2 extends AppCompatActivity {
                 event.getTitle(),
                 event.getColor());
 
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        switch (event.getAction()){
+            case MotionEvent.ACTION_DOWN:
+                x1 = event.getX();
+                y1 = event.getY();
+                break;
+            case MotionEvent.ACTION_UP:
+                x2 = event.getX();
+                y2 = event.getY();
+                if(x1 > x2 && abs(x1-x2)>300){
+                    Intent i = new Intent(Activity_2.this, Activity_3.class);
+                    startActivity(i);
+                    overridePendingTransition(R.xml.slide_left_start, R.xml.slide_left_end);
+                }
+        }
+        return false;
     }
 
 }
