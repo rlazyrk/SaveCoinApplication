@@ -580,6 +580,7 @@
             android:layout_height="wrap_content"
             android:text="Total Spending:"
             android:textColor="@color/white"
+            android:gravity="center"
             android:textSize="23sp"
             tools:layout_editor_absoluteX="160dp"
             tools:layout_editor_absoluteY="365dp"
@@ -593,6 +594,7 @@
             android:textColor="@color/white"
             android:textSize="23sp"
             android:layout_marginTop="30dp"
+            android:gravity="center"
             android:layout_marginLeft="40dp"
             tools:ignore="HardcodedText,MissingConstraints" />
 
@@ -606,6 +608,7 @@
         android:layout_marginTop="470dp"
         android:ems="10"
         android:textColor="@color/white"
+        android:gravity="center"
         android:hint="@string/addExpensesType"
         android:inputType="number"
         android:textAlignment="center"
@@ -635,9 +638,10 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginStart="42dp"
-            android:layout_marginTop="11dp"
             android:importantForAccessibility="no"
-            android:background="@drawable/calendar"/>
+            android:background="@drawable/calendar"
+            android:layout_gravity="center|start"
+            android:layout_marginTop="1dp"/>
 
         <FrameLayout
             android:layout_width="137dp"
@@ -649,16 +653,17 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0">
+            app:layout_constraintVertical_bias="0.0"
+            android:layout_gravity="center">
 
             <Button
                 android:id="@+id/goToActivity_3"
                 android:layout_width="60dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="37dp"
-                android:layout_marginTop="8dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="39dp"
                 android:importantForAccessibility="no"
-                android:background="@drawable/wallet" />
+                android:background="@drawable/wallet"
+                android:layout_marginTop="5dp"/>
         </FrameLayout>
 
         <Button
@@ -666,9 +671,10 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginStart="38dp"
-            android:layout_marginTop="13dp"
+            android:layout_marginTop="2dp"
             android:importantForAccessibility="no"
-            android:background="@drawable/aim" />
+            android:background="@drawable/aim"
+            android:layout_gravity="center"/>
     </LinearLayout>
 
 

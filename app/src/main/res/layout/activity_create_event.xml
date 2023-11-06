@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:descendantFocusability="beforeDescendants"
-    android:focusableInTouchMode="true">
+    android:focusableInTouchMode="true"
+    android:background="#26292B">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,7 +18,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:elevation="0dp"
-            android:theme="@style/AppTheme.AppBarOverlay">
+            android:theme="@style/AppTheme.AppBarOverlay"
+            android:background="#26292B">
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
@@ -32,7 +34,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:orientation="horizontal"
-                android:background="?attr/colorPrimary">
+                android:background="#26292B">
 
                 <TextView
                     style="@style/createEventToolbarItems"
@@ -54,10 +56,12 @@
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="360dp"
+                android:layout_gravity="center|top"
+                android:layout_height="800dp"
                 android:orientation="vertical"
-                android:clipToPadding="false">
+                android:background="@drawable/circle_w_corner"
+                android:backgroundTint="@color/white">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -69,7 +73,8 @@
 
                     <ImageView
                         style="@style/createEventIconStyle"
-                        android:src="@drawable/ic_title"/>
+                        android:src="@drawable/ic_title"
+                        android:outlineSpotShadowColor="@color/white"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -88,15 +93,16 @@
                             android:layout_width="0dp"
                             android:layout_weight="1"
                             android:hint="@string/title"
-                            android:textColor="#252525"
+                            android:textColorHint="@color/black"
+                            android:textColor="@color/black"
                             android:paddingStart="6dp"
                             android:paddingEnd="6dp"
                             style="@style/createEventItemTextView" />
 
                         <androidx.cardview.widget.CardView
                             android:id="@+id/cardView_event_color"
-                            android:layout_width="18dp"
-                            android:layout_height="18dp"
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
                             android:layout_margin="8.5dp"
                             app:cardBackgroundColor="?attr/colorPrimary"
                             app:cardCornerRadius="2dp"
@@ -144,7 +150,8 @@
                         <Switch
                             android:id="@+id/checkbox_completed"
                             android:layout_height="wrap_content"
-                            android:layout_width="wrap_content"/>
+                            android:layout_width="wrap_content"
+                            tools:ignore="UseSwitchCompatOrMaterialXml" />
 
                     </LinearLayout>
 
