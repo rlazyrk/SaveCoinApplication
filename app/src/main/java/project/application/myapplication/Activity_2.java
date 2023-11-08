@@ -28,6 +28,7 @@ public class Activity_2 extends AppCompatActivity {
 
     private final static int CREATE_EVENT_REQUEST_CODE = 100;
 
+    private EventDBOpenHelper mDB;
     private String[] mShortMonths;
     private CalendarView mCalendarView;
     private CalendarDialog mCalendarDialog;
@@ -44,7 +45,8 @@ public class Activity_2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         mShortMonths = new DateFormatSymbols().getShortMonths();
-
+        mDB = new EventDBOpenHelper(this);
+        mEventList=mDB.getall();
         initializeUI();
     }
 
@@ -163,6 +165,7 @@ public class Activity_2 extends AppCompatActivity {
                         mEventList.add(event);
                         mCalendarView.addCalendarObject(parseCalendarObject(event));
                         mCalendarDialog.setEventList(mEventList);
+                        mDB.insert(event.getDate(),event.getID(),event.getTitle(),event.getColor(),event.isCompleted());
                         break;
                     }
                     case CreateEventActivity.ACTION_EDIT: {
