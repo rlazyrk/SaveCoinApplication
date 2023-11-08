@@ -81,7 +81,7 @@ public class Activity_3 extends AppCompatActivity {
         viewType_7 = findViewById(R.id.viewType_7);
         viewType_8 = findViewById(R.id.viewType_8);
         viewType_9 = findViewById(R.id.viewType_9);
-        viewSumOfAll = findViewById(R.id.viewSumOfAll);
+//        viewSumOfAll = findViewById(R.id.viewSumOfAll);
         mDB = new SpendingsDBOpenHelper(this);
         viewType_1.setText(expensesType_1.toString());
         viewType_2.setText(expensesType_2.toString());
@@ -112,7 +112,7 @@ public class Activity_3 extends AppCompatActivity {
         viewType_8.setText(expensesType_8.toString());
         viewType_9.setText(expensesType_9.toString());
 
-        viewSumOfAll.setText(sumOfAllint.toString());
+//        viewSumOfAll.setText(sumOfAllint.toString());
         btnType_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -123,7 +123,7 @@ public class Activity_3 extends AppCompatActivity {
                     expensesType_1 = mDB.query(1);
                     viewType_1.setText(expensesType_1.toString());
                     sumOfAllint = mDB.querySum(9);
-                    viewSumOfAll.setText(sumOfAllint.toString());
+//                    viewSumOfAll.setText(sumOfAllint.toString());
                 }
             }
         });
@@ -137,7 +137,7 @@ public class Activity_3 extends AppCompatActivity {
                     expensesType_2 = mDB.query(2);
                     viewType_2.setText(expensesType_2.toString());
                     sumOfAllint = mDB.querySum(9);
-                    viewSumOfAll.setText(sumOfAllint.toString());
+//                    viewSumOfAll.setText(sumOfAllint.toString());
                 }
             }
         });
@@ -151,7 +151,7 @@ public class Activity_3 extends AppCompatActivity {
                     expensesType_3 = mDB.query(3);
                     viewType_3.setText(expensesType_3.toString());
                     sumOfAllint = mDB.querySum(9);
-                    viewSumOfAll.setText(sumOfAllint.toString());
+//                    viewSumOfAll.setText(sumOfAllint.toString());
                 }
             }
         });
@@ -165,7 +165,7 @@ public class Activity_3 extends AppCompatActivity {
                     expensesType_4 = mDB.query(4);
                     viewType_4.setText(expensesType_4.toString());
                     sumOfAllint = mDB.querySum(9);
-                    viewSumOfAll.setText(sumOfAllint.toString());
+//                    viewSumOfAll.setText(sumOfAllint.toString());
                 }
             }
         });
@@ -180,7 +180,7 @@ public class Activity_3 extends AppCompatActivity {
                     expensesType_5 = mDB.query(5);
                     viewType_5.setText(expensesType_5.toString());
                     sumOfAllint = mDB.querySum(9);
-                    viewSumOfAll.setText(sumOfAllint.toString());
+//                    viewSumOfAll.setText(sumOfAllint.toString());
                 }
             }
         });
@@ -195,7 +195,7 @@ public class Activity_3 extends AppCompatActivity {
                     expensesType_6 = mDB.query(6);
                     viewType_6.setText(expensesType_6.toString());
                     sumOfAllint = mDB.querySum(9);
-                    viewSumOfAll.setText(sumOfAllint.toString());
+//                    viewSumOfAll.setText(sumOfAllint.toString());
                 }
             }
         });
@@ -210,7 +210,7 @@ public class Activity_3 extends AppCompatActivity {
                     expensesType_7 = mDB.query(7);
                     viewType_7.setText(expensesType_7.toString());
                     sumOfAllint = mDB.querySum(9);
-                    viewSumOfAll.setText(sumOfAllint.toString());
+//                    viewSumOfAll.setText(sumOfAllint.toString());
                 }
             }
         });
@@ -225,7 +225,7 @@ public class Activity_3 extends AppCompatActivity {
                     expensesType_8 = mDB.query(8);
                     viewType_8.setText(expensesType_8.toString());
                     sumOfAllint = mDB.querySum(9);
-                    viewSumOfAll.setText(sumOfAllint.toString());
+//                    viewSumOfAll.setText(sumOfAllint.toString());
                 }
             }
         });
@@ -240,7 +240,7 @@ public class Activity_3 extends AppCompatActivity {
                     expensesType_9 = mDB.query(9);
                     viewType_9.setText(expensesType_9.toString());
                     sumOfAllint = mDB.querySum(9);
-                    viewSumOfAll.setText(sumOfAllint.toString());
+//                    viewSumOfAll.setText(sumOfAllint.toString());
                 }
             }
         });

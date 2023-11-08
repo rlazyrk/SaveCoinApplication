@@ -9,20 +9,20 @@
         android:id="@+id/goalNameEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Назва цілі" />
+        android:hint="Goal name" />
 
     <EditText
         android:id="@+id/goalAmountEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="numberDecimal"
-        android:hint="Сума цілі" />
+        android:hint="Goal amount" />
 
     <EditText
         android:id="@+id/dateEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Дата цілі"
+        android:hint="Select a date"
         android:focusable="false"
         android:clickable="true" />
 
