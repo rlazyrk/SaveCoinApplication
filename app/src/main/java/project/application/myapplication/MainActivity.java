@@ -33,6 +33,38 @@ public class MainActivity extends AppCompatActivity {
     private TextView currentBudget;
     private SpendingsDBOpenHelper mDB;
 
+    private void scheduleDailyNotification() {
+        // Определите время, в которое вы хотите показывать уведомление
+        int hour = 8; // Например, в 8 утра
+        int minute = 0;
+
+        // Создайте календарь для задания времени
+        Calendar notificationTime = Calendar.getInstance();
+        notificationTime.set(Calendar.HOUR_OF_DAY, hour);
+        notificationTime.set(Calendar.MINUTE, minute);
+        notificationTime.set(Calendar.SECOND, 0);
+
+        // Получите системный сервис AlarmManager
+        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+
+        // Создайте Intent для вашего BroadcastReceiver
+        Intent intent = new Intent(this, MyReceiver.class);
+
+        // Установите действие, которое будет использоваться в вашем BroadcastReceiver
+        intent.setAction("your_notification_action");
+
+        // Создайте PendingIntent, который будет запускать BroadcastReceiver
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_IMMUTABLE);
+
+        // Установите повторение на каждый день
+        long interval = 24 * 60 * 60 * 1000; // 24 часа
+        long startTime = notificationTime.getTimeInMillis();
+
+        // Запланируйте уведомление с использованием AlarmManager
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, startTime, interval, pendingIntent);
+    }
+
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +72,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mDB = new SpendingsDBOpenHelper(this);
+
+        scheduleDailyNotification();
 
         goToMain = findViewById(R.id.goToMain);
         goToActivity_2 = findViewById(R.id.goToActivity_2);

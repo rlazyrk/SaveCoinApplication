@@ -57,7 +57,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="project.application.myapplication.CreateEventActivity" />
         </activity>
-
+        <receiver android:name=".MyReceiver" />
     </application>
 
 </manifest>
