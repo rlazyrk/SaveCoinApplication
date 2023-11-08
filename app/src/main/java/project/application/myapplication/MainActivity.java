@@ -69,8 +69,8 @@ public class MainActivity extends AppCompatActivity {
 
         // Установите действие, которое будет использоваться в вашем BroadcastReceiver
         intent.setAction("your_notification_action");
-
-        // Создайте PendingIntent, который будет запускать BroadcastReceiver
+        intent.putExtra("text", "don`t forget about us");
+        intent.putExtra("title", "MyDailyNotification");
         PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_IMMUTABLE);
 
         // Установите повторение на каждый день
@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         long startTime = notificationTime.getTimeInMillis();
 
         // Запланируйте уведомление с использованием AlarmManager
-        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, notificationTime.getTimeInMillis(), interval, pendingIntent);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, startTime, interval, pendingIntent);
     }
 
     @SuppressLint("MissingInflatedId")
