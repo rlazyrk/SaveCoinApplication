@@ -36,6 +36,14 @@ public class Goal {
         this.startDate = startDate;
     }
 
+    public Goal( String goalName, int goalAmount, int currentAmount, String goalDate, String startDate) {
+        this.goalName = goalName;
+        this.goalAmount = goalAmount;
+        this.currentAmount = currentAmount;
+        this.goalDate = goalDate;
+        this.startDate = startDate;
+    }
+
     public long getId() {
         return id;
     }
@@ -58,5 +66,9 @@ public class Goal {
 
     public String getStartDate() {
         return startDate;
+    }
+
+    public void setCurrentAmount(int newAmount){
+        this.goalAmount = newAmount;
     }
 }
