@@ -39,8 +39,8 @@
 
     <FrameLayout
         android:id="@+id/frameLayout10"
-        android:layout_width="77dp"
-        android:layout_height="77dp"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
         android:layout_gravity="bottom|center"
         android:layout_marginBottom="120dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -61,16 +61,16 @@
 
         <ImageView
             android:id="@+id/imageView10"
-            android:layout_width="77dp"
-            android:layout_height="77dp"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
             android:adjustViewBounds="true"
             android:background="@drawable/circle_w_corner"
             android:elevation="-1dp"/>
 
         <ImageView
             android:id="@+id/icon10"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:importantForAccessibility="no"
             android:src="@drawable/add"
             android:layout_gravity="center"/>
@@ -86,48 +86,82 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_gravity="bottom"
+        android:gravity="center"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0">
 
         <FrameLayout
-            android:layout_width="128dp"
-            android:layout_height="70dp"
+            android:layout_width="130dp"
+            android:layout_height="55dp"
             android:background="@drawable/round_rectangle_left_top"
-            android:layout_gravity="start|center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0">
+            app:layout_constraintVertical_bias="0.0"
+            android:layout_gravity="center"
+            android:layout_marginStart="130dp"
+            android:layout_centerInParent="true">
 
             <Button
                 android:id="@+id/goToActivity_2"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginStart="41dp"
-                android:layout_marginTop="11dp"
-                android:background="@drawable/calendar"/>
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:importantForAccessibility="no"
+                android:background="@drawable/calendar"
+                android:layout_gravity="center"
+                android:layout_centerInParent="true"/>
         </FrameLayout>
 
-        <Button
-            android:id="@+id/goToActivity_3"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="41dp"
-            android:background="@drawable/wallet"
-            android:layout_gravity="center"/>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            android:layout_gravity="center"
+            android:layout_centerInParent="true">
 
-        <Button
-            android:id="@+id/goToMain"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="64dp"
-            android:layout_marginTop="2dp"
-            android:background="@drawable/aim"
-            android:layout_gravity="center"/>
+            <Button
+                android:id="@+id/goToActivity_3"
+                android:layout_width="50dp"
+                android:layout_gravity="center"
+                android:layout_height="50dp"
+                android:importantForAccessibility="no"
+                android:background="@drawable/wallet"
+                android:layout_centerInParent="true"
+                android:gravity="center"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="130dp"
+            android:layout_height="55dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            android:layout_gravity="center"
+            android:layout_centerInParent="true"
+            android:layout_marginEnd="130dp">
+
+            <Button
+                android:id="@+id/goToMain"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="-4dp"
+                android:importantForAccessibility="no"
+                android:background="@drawable/aim"
+                android:layout_gravity="center"
+                android:layout_centerInParent="true" />
+        </FrameLayout>
     </LinearLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
