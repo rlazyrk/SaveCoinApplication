@@ -9,6 +9,7 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -168,6 +169,26 @@ public class Activity_2 extends AppCompatActivity {
                         mCalendarView.addCalendarObject(parseCalendarObject(event));
                         mCalendarDialog.setEventList(mEventList);
                         mDB.insert(event.getDate(),event.getID(),event.getTitle(),event.getColor(),event.isCompleted());
+                        /* ПО ПЕРШЕ ПРИХОДИТЬ З ЗАПІЗНЕННЯМ В ХВИЛИНУ ЧЕРЕЗ ПОВІЛЬНІСТЬ ОБРОБКИ
+                        *  ПО ДРУГЕ ЧОМУСЬ ВОНО НЕ ДОЗВОЛЯЄ 2 ОДНОЧАСНО НОТИФІКАЦІЇ ТАК ЗАПУСКАТИ Я ХЗ ЧОГО*/
+                        //AlarmManager alarmManager0 = (AlarmManager) getSystemService(ALARM_SERVICE);
+                        AlarmManager alarmManager1 = (AlarmManager) getSystemService(ALARM_SERVICE);
+
+                       // Intent intent0 = new Intent(this, MyReceiver.class);
+                        //intent0.setAction("your_notification_action");
+                        //intent0.putExtra("text", event.getTitle()+"\n u have 1 day until this");
+                        //intent0.putExtra("title","Event Reminder");
+                       // PendingIntent pendingIntent0 = PendingIntent.getBroadcast(this, 0, intent0, PendingIntent.FLAG_IMMUTABLE);
+
+                        Intent intent1 = new Intent(this, MyReceiver.class);
+                        intent1.setAction("your_notification_action");
+                        intent1.putExtra("text", event.getTitle());
+                        intent1.putExtra("title","Event Reminder");
+                        PendingIntent pendingIntent1 = PendingIntent.getBroadcast(this, 0, intent1, PendingIntent.FLAG_IMMUTABLE);
+                        //Calendar calendar = event.getDate();
+                        //calendar.add(Calendar.HOUR_OF_DAY, -24);
+                        //alarmManager0.set(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(), pendingIntent0);
+                        alarmManager1.set(AlarmManager.RTC_WAKEUP,event.getDate().getTimeInMillis(), pendingIntent1);
                         break;
                     }
                     case CreateEventActivity.ACTION_EDIT: {
@@ -184,6 +205,7 @@ public class Activity_2 extends AppCompatActivity {
                             mCalendarView.removeCalendarObjectByID(parseCalendarObject(oldEvent));
                             mCalendarView.addCalendarObject(parseCalendarObject(event));
                             mCalendarDialog.setEventList(mEventList);
+
 
                         }
                         break;

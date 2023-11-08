@@ -13,8 +13,10 @@ public class MyReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         if (intent.getAction() != null && intent.getAction().equals("your_notification_action")) {
+            String title = intent.getStringExtra("title");
+            String text = intent.getStringExtra("text");
             createNotificationChannel(context);
-            showNotification(context);
+            showNotification(context,title,text);
         }
     }
 
@@ -30,11 +32,11 @@ public class MyReceiver extends BroadcastReceiver {
         }
     }
 
-    private void showNotification(Context context) {
+    private void showNotification(Context context,String title,String text) {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, "default")
                 .setSmallIcon(R.drawable.ic_launcher_background)
-                .setContentTitle("My Daily Notification")
-                .setContentText("Don't forget to complete your goals!")
+                .setContentTitle(title)
+                .setContentText(text)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
