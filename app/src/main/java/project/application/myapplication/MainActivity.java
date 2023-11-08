@@ -17,21 +17,33 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.List;
+import java.util.Locale;
+
+import project.application.myapplication.allForGoals.Goal;
+import project.application.myapplication.allForGoals.GoalAdapter;
+import project.application.myapplication.allForGoals.GoalsDBOpenHelper;
 
 
+
+//FIXME не працює зміна цілі та додавання будь чого в ціль
 public class MainActivity extends AppCompatActivity {
 
     private Button goToMain;
     private Button goToActivity_2;
     private Button goToActivity_3;
-
-    private AlertDialog alertDialog;
+    private RecyclerView recyclerView;
+    private GoalAdapter goalAdapter;
+    private List<Goal> goalList;
+    private GoalsDBOpenHelper goalsDBOpenHelper;
 
     private EditText dateEditText;
     private Calendar calendar;
@@ -41,10 +53,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        goalsDBOpenHelper = new GoalsDBOpenHelper(this);
         setContentView(R.layout.activity_main);
         dateEditText = findViewById(R.id.dateEditText);
         calendar = Calendar.getInstance();
-
+        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        goalList = goalsDBOpenHelper.getAllGoals();
+        goalAdapter = new GoalAdapter(goalList, this);
+        recyclerView.setAdapter(goalAdapter);
         goToMain = findViewById(R.id.goToMain);
         goToActivity_2 = findViewById(R.id.goToActivity_2);
         goToActivity_3 = findViewById(R.id.goToActivity_3);
@@ -82,21 +99,54 @@ public class MainActivity extends AppCompatActivity {
                 final EditText goalAmountEditText = dialogView.findViewById(R.id.goalAmountEditText);
                 final EditText dateEditText = dialogView.findViewById(R.id.dateEditText);
 
-                builder.setPositiveButton("Зберегти", new DialogInterface.OnClickListener() {
+                dateEditText.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        // Отримуємо дані з полів вводу
-                        String goalName = goalNameEditText.getText().toString();
-                        String goalAmount = goalAmountEditText.getText().toString();
-                        String date = dateEditText.getText().toString();
+                    public void onClick(View v) {
+                        //не факт але можливо можна видалити 3 рядки знизу
+                        int year = calendar.get(Calendar.YEAR);
+                        int month = calendar.get(Calendar.MONTH);
+                        int day = calendar.get(Calendar.DAY_OF_MONTH);
 
-                        // Тут ви можете використовувати отримані дані для збереження цілі в базі даних або іншій логіці
+
+                        DatePickerDialog datePickerDialog = new DatePickerDialog(MainActivity.this,
+                                new DatePickerDialog.OnDateSetListener() {
+                                    @Override
+                                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                                        // оновлює текст
+                                        calendar.set(year, monthOfYear, dayOfMonth);
+                                        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+                                        dateEditText.setText(dateFormat.format(calendar.getTime()));
+                                    }
+                                }, year, month, day);
+                        datePickerDialog.show();
                     }
                 });
 
-                builder.setNegativeButton("Скасувати", new DialogInterface.OnClickListener() {
+                builder.setPositiveButton("Save", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        String goalName = goalNameEditText.getText().toString();
+                        String goalAmountString = goalAmountEditText.getText().toString();
+                        int goalAmount = Integer.parseInt(goalAmountString);
+                        String endDate = dateEditText.getText().toString();
+                        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+                        String startDate = dateFormat.format(Calendar.getInstance().getTime());
+                        Goal newGoal = new Goal(goalName, goalAmount, 0, endDate, startDate);
+                        goalsDBOpenHelper.insertGoal(newGoal);
+                        goalList.clear();
+                        goalList.addAll(goalsDBOpenHelper.getAllGoals());
+                        goalAdapter.notifyDataSetChanged();
+                        dialog.dismiss();
+                    }
+                });
+
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        goalNameEditText.setText("");
+                        goalAmountEditText.setText("");
+                        dateEditText.setText("");
+                        dialog.dismiss();
                         dialog.dismiss();
                     }
                 });
@@ -151,7 +201,6 @@ public class MainActivity extends AppCompatActivity {
         }
         return false;
     }
-
 
 }
 

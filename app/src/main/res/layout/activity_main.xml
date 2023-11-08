@@ -6,11 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
     <Button
         android:id="@+id/showInputDialogButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ввести дані цілі" />
+        android:layout_marginStart="120dp"
+        android:text="Add new Goal"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="2dp" />
 
     <Button
         android:id="@+id/notificationButton"
@@ -20,13 +24,10 @@
         android:text="Show Notification"
         app:layout_constraintBottom_toBottomOf="@+id/linearLayout4"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.433"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.57" />
-
-
-
-
+        app:layout_constraintVertical_bias="0.907" />
 
     <LinearLayout
         android:id="@+id/linearLayout4"
@@ -65,5 +66,17 @@
             android:fontFamily="sans-serif-black"
             android:text="Categories" />
     </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="350dp"
+        android:layout_height="400dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="148dp"
+        app:layout_constraintBottom_toTopOf="@+id/notificationButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
