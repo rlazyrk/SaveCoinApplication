@@ -5,6 +5,8 @@ package project.application.myapplication;
 import static java.lang.Math.abs;
 
 import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -179,10 +181,10 @@ public class Activity_2 extends AppCompatActivity {
                         if (oldEvent != null) {
                             mEventList.remove(oldEvent);
                             mEventList.add(event);
-
                             mCalendarView.removeCalendarObjectByID(parseCalendarObject(oldEvent));
                             mCalendarView.addCalendarObject(parseCalendarObject(event));
                             mCalendarDialog.setEventList(mEventList);
+
                         }
                         break;
                     }
