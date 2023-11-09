@@ -104,24 +104,24 @@ public class MainActivity extends AppCompatActivity {
 
         Button showInputDialogButton = findViewById(R.id.showInputDialogButton);
 
-        Button notificationButton = findViewById(R.id.notificationButton);
+//        Button notificationButton = findViewById(R.id.notificationButton);
 
-        notificationButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                    NotificationChannel channel = new NotificationChannel("default", "Default", NotificationManager.IMPORTANCE_DEFAULT);
-                    notificationManager.createNotificationChannel(channel);
-                }
-                NotificationCompat.Builder builder = new NotificationCompat.Builder(MainActivity.this, "default")
-                        .setSmallIcon(R.drawable.ic_launcher_background)
-                        .setContentTitle("My notification")
-                        .setContentText("Hello World!")
-                        .setPriority(NotificationCompat.PRIORITY_DEFAULT);
-                notificationManager.notify(0, builder.build());
-            }
-        });
+//        notificationButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+//                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+//                    NotificationChannel channel = new NotificationChannel("default", "Default", NotificationManager.IMPORTANCE_DEFAULT);
+//                    notificationManager.createNotificationChannel(channel);
+//                }
+//                NotificationCompat.Builder builder = new NotificationCompat.Builder(MainActivity.this, "default")
+//                        .setSmallIcon(R.drawable.ic_launcher_background)
+//                        .setContentTitle("My notification")
+//                        .setContentText("Hello World!")
+//                        .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+//                notificationManager.notify(0, builder.build());
+//            }
+//        });
 
         showInputDialogButton.setOnClickListener(new View.OnClickListener() {
             @Override

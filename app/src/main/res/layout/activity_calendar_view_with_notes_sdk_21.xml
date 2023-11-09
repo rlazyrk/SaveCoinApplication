@@ -32,7 +32,7 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         app:content_background_color="#fff"
         app:week_header_background_color="#fff"
-        app:week_header_text_color="?attr/colorPrimary"
+        app:week_header_text_color="#6C7FCC"
         app:current_day_circle_enable="true"
         app:month_header_show="false"
         app:week_header_movable="false" />
