@@ -22,7 +22,7 @@
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
                 android:textSize="18sp"
-                android:textColor="?attr/colorPrimary"
+                android:textColor="@color/purple_200"
                 android:text="@string/select_color_instruction"
                 android:padding="5dp"/>
 
@@ -39,7 +39,7 @@
                 android:text="@string/cancel"
                 android:background="?attr/selectableItemBackground"
                 android:layout_gravity="end"
-                android:textColor="?attr/colorPrimary"
+                android:textColor="@color/black"
                 android:textStyle="bold"
                 android:textAllCaps="true"/>
 
