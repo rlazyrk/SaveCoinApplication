@@ -29,6 +29,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
+import java.util.Random;
 
 import project.application.myapplication.allForGoals.Goal;
 import project.application.myapplication.allForGoals.GoalAdapter;
@@ -50,9 +51,11 @@ public class MainActivity extends AppCompatActivity {
     private EditText dateEditText;
     private Calendar calendar;
     private float x1,x2,y1,y2;
+
+
     private void scheduleDailyNotification() {
         // Определите время, в которое вы хотите показывать уведомление
-        int hour = 17; // Например, в 8 утра
+        int hour = 17;
         int minute = 55;
 
         // Создайте календарь для задания времени
@@ -60,6 +63,37 @@ public class MainActivity extends AppCompatActivity {
         notificationTime.set(Calendar.HOUR_OF_DAY, hour);
         notificationTime.set(Calendar.MINUTE, minute);
         notificationTime.set(Calendar.SECOND, 0);
+
+        String[] rules = {
+                "Вчіться розумно витрачати гроші.",
+                "Не купуйте те, що вам не потрібно, або те, що ви не можете собі дозволити.",
+                "Завжди порівнюйте ціни і шукайте знижки.",
+                "Створіть собі бюджет і дотримуйтеся його.",
+                "Відокремлюйте свої потреби від своїх бажань і встановлюйте собі фінансові цілі.",
+                "Відкладайте частину своїх грошей на майбутнє.",
+                "Чим раніше ви почнете заощаджувати, тим краще.",
+                "Плануйте свої великі покупки.",
+                "Не купуйте щось дороге по імпульсу, а ретельно обдумайте своє рішення.",
+                "Створіть собі графік платежів і дотримуйтеся його.",
+                "Шукайте додаткові джерела доходу.",
+                "Не бійтеся ризикувати, але робіть це обґрунтовано.",
+                "Не втрачайте гроші через емоції.",
+                "Відкладайте частину своїх грошей на непередбачені витрати.",
+                "Ніколи не надійтесь на одне джерело доходу.",
+                "Розвивай грошове мислення.",
+                "Зберігай мінімум 20% свого доходу.",
+                "Не збільшуй витрати паралельно із доходом.",
+                "Не витрачайте гроші, намагаючись справити враження.",
+                "Не припиняй вчитись і вкладати у себе.",
+                "Уникайте боргів будь-якою ціною"
+        };
+        Random random = new Random();
+
+        // Generate a random index within the range of the array
+        int randomIndex = random.nextInt(rules.length);
+
+        // Get the random element from the array
+
 
         // Получите системный сервис AlarmManager
         AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
@@ -69,16 +103,16 @@ public class MainActivity extends AppCompatActivity {
 
         // Установите действие, которое будет использоваться в вашем BroadcastReceiver
         intent.setAction("your_notification_action");
-        intent.putExtra("text", "don`t forget about us");
+        intent.putExtra("text", rules[randomIndex]);
         intent.putExtra("title", "MyDailyNotification");
         PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_IMMUTABLE);
 
-        // Установите повторение на каждый день
+
         long interval = 24 * 60 * 60 * 1000; // 24 часа
         long startTime = notificationTime.getTimeInMillis();
 
-        // Запланируйте уведомление с использованием AlarmManager
-        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, startTime, interval, pendingIntent);
+
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, 0, 10000, pendingIntent);
     }
 
     @SuppressLint("MissingInflatedId")
@@ -104,24 +138,24 @@ public class MainActivity extends AppCompatActivity {
 
         Button showInputDialogButton = findViewById(R.id.showInputDialogButton);
 
-        Button notificationButton = findViewById(R.id.notificationButton);
+//        Button notificationButton = findViewById(R.id.notificationButton);
 
-        notificationButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                    NotificationChannel channel = new NotificationChannel("default", "Default", NotificationManager.IMPORTANCE_DEFAULT);
-                    notificationManager.createNotificationChannel(channel);
-                }
-                NotificationCompat.Builder builder = new NotificationCompat.Builder(MainActivity.this, "default")
-                        .setSmallIcon(R.drawable.ic_launcher_background)
-                        .setContentTitle("My notification")
-                        .setContentText("Hello World!")
-                        .setPriority(NotificationCompat.PRIORITY_DEFAULT);
-                notificationManager.notify(0, builder.build());
-            }
-        });
+//        notificationButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+//                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+//                    NotificationChannel channel = new NotificationChannel("default", "Default", NotificationManager.IMPORTANCE_DEFAULT);
+//                    notificationManager.createNotificationChannel(channel);
+//                }
+//                NotificationCompat.Builder builder = new NotificationCompat.Builder(MainActivity.this, "default")
+//                        .setSmallIcon(R.drawable.ic_launcher_background)
+//                        .setContentTitle("My notification")
+//                        .setContentText("Hello World!")
+//                        .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+//                notificationManager.notify(0, builder.build());
+//            }
+//        });
 
         showInputDialogButton.setOnClickListener(new View.OnClickListener() {
             @Override
