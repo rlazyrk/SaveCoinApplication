@@ -43,8 +43,9 @@ public class MyReceiver extends BroadcastReceiver {
 
             String text = intent.getStringExtra("title");
             String isDaily = intent.getStringExtra("text");
+            int id = Integer.parseInt(intent.getStringExtra("id"));
             createNotificationChannel(context);
-            showNotification(context,text,isDaily);
+            showNotification(context,text,isDaily,id);
         }
     }
 
@@ -60,7 +61,7 @@ public class MyReceiver extends BroadcastReceiver {
         }
     }
 
-    private void showNotification(Context context,String title,String isDaily) {
+    private void showNotification(Context context,String title,String isDaily,int id) {
         String text;
         if (Objects.equals(isDaily, "day")) {
             Random random = new Random();
@@ -79,6 +80,6 @@ public class MyReceiver extends BroadcastReceiver {
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-        notificationManager.notify(0, builder.build());
+        notificationManager.notify(id, builder.build());
     }
 }

@@ -37,7 +37,7 @@ public class Activity_2 extends AppCompatActivity {
     private CalendarDialog mCalendarDialog;
     private SpendingsDBOpenHelper mDB1;
 
-
+    int i = 2;
     private float x1,x2,y1,y2;
     private List<Event> mEventList = new ArrayList<>();
 
@@ -177,8 +177,9 @@ public class Activity_2 extends AppCompatActivity {
                         intent1.setAction("your_notification_action");
                         intent1.putExtra("text", event.getTitle());
                         intent1.putExtra("title","Event Reminder");
-                        PendingIntent pendingIntent1 = PendingIntent.getBroadcast(this, mDB1.query(99), intent1, PendingIntent.FLAG_IMMUTABLE);
-                        mDB1.insert(1,99);
+                        intent1.putExtra("id",Integer.toString(i));
+                        PendingIntent pendingIntent1 = PendingIntent.getBroadcast(this, i, intent1, PendingIntent.FLAG_IMMUTABLE);
+                        i++;
                         alarmManager1.set(AlarmManager.RTC_WAKEUP,event.getDate().getTimeInMillis(), pendingIntent1);
                         break;
                     }

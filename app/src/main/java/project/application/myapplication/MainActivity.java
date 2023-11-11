@@ -79,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
         intent.setAction("your_notification_action");
         intent.putExtra("title", "MyDailyNotification");
         intent.putExtra("text", "day");
+        intent.putExtra("id",Integer.toString(0));
         PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_IMMUTABLE);
 
 
