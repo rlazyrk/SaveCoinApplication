@@ -1,45 +1,68 @@
 <!-- res/layout/goal_item.xml -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-android:orientation="vertical">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingStart="16dp"
+    android:paddingTop="10dp"
+    android:paddingEnd="19dp"
+    android:layout_marginTop="20dp"
+    android:background="@drawable/circle_goat">
 
     <TextView
         android:id="@+id/goalName"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <TextView
-        android:id="@+id/goalAmount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-
-    <TextView
-        android:id="@+id/currentAmount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-
+        android:layout_height="wrap_content"
+        android:textColor="#A0A1A7"
+        android:textSize="19sp"
+        android:textStyle="bold"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
 
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="2dp"
         android:indeterminate="false" />
+
+    <TextView
+        android:id="@+id/goalAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#8F8F8F"
+        android:layout_marginTop="7dp"
+        android:textSize="16sp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+    <TextView
+        android:id="@+id/currentAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#8F8F8F"
+        android:layout_marginTop="5dp"
+        android:textSize="16sp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
 
     <Button
         android:id="@+id/buttonAdd"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add money to your goal" />
+        android:layout_height="35dp"
+        android:text="Add money to your goal"
+        android:textColor="#848383"
+        android:textSize="10sp"
+        android:layout_marginLeft="-3dp"
+        android:layout_marginTop="-2dp" />
 
-        <TextView
-            android:id="@+id/endDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="End Date: "
-            android:textColor="#000000" />
+    <TextView
+        android:id="@+id/endDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date: "
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:textSize="12sp"
+        android:layout_marginTop="10dp"
+        android:paddingBottom="13dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
 
 </LinearLayout>

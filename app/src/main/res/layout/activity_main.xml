@@ -4,66 +4,153 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-
-    <Button
-        android:id="@+id/showInputDialogButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="120dp"
-        android:text="Add new Goal"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="2dp"
-        tools:ignore="MissingConstraints" />
+    tools:context=".MainActivity"
+    android:background="#26292B">
 
     <LinearLayout
-        android:id="@+id/linearLayout4"
-        android:layout_width="409dp"
-        android:layout_height="38dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal">
 
-        <Button
-            android:id="@+id/goToActivity_2"
-            android:layout_width="176dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:fontFamily="sans-serif-black"
-            android:text="Notifications" />
-
-        <Button
-            android:id="@+id/goToMain"
-            android:layout_width="56dp"
+        <TextView
+            android:id="@+id/titleMyAims"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="#00FFFFFF"
-            android:foreground="@drawable/savecoin"
-            android:text="Main" />
-
-        <Button
-            android:id="@+id/goToActivity_3"
-            android:layout_width="179dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:fontFamily="sans-serif-black"
-            android:text="Categories" />
+            android:layout_gravity="top"
+            android:layout_marginTop="30dp"
+            android:text="My Aims"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            tools:ignore="MissingConstraints"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="350dp"
-        android:layout_height="400dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:layout_width="match_parent"
+        android:layout_height="570dp"
+        android:scrollbars="vertical"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="148dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginTop="60dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintTop_toBottomOf="@+id/icon15"
+        tools:ignore="NotSibling" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="MissingConstraints"
+        android:gravity="top"
+        android:layout_marginTop="-150dp">
+
+        <ImageView
+            android:id="@+id/icon15"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/circle_w_corner" />
+
+        <Button
+            android:id="@+id/showInputDialogButton"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/add" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_rectangle_top"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_gravity="bottom"
+        android:gravity="center"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <FrameLayout
+            android:layout_width="130dp"
+            android:layout_height="55dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            android:layout_gravity="center"
+            android:layout_marginStart="130dp"
+            android:layout_centerInParent="true">
+
+            <Button
+                android:id="@+id/goToActivity_2"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:importantForAccessibility="no"
+                android:background="@drawable/calendar"
+                android:layout_gravity="center"
+                android:layout_centerInParent="true"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            android:layout_gravity="center"
+            android:layout_centerInParent="true">
+
+            <Button
+                android:id="@+id/goToActivity_3"
+                android:layout_width="50dp"
+                android:layout_gravity="center"
+                android:layout_height="50dp"
+                android:importantForAccessibility="no"
+                android:background="@drawable/wallet"
+                android:layout_centerInParent="true"
+                android:gravity="center"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="130dp"
+            android:layout_height="55dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            android:layout_gravity="center"
+            android:background="@drawable/round_rectangle_right_aim"
+            android:layout_centerInParent="true"
+            android:layout_marginEnd="130dp">
+
+            <Button
+                android:id="@+id/goToMain"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="-4dp"
+                android:importantForAccessibility="no"
+                android:background="@drawable/aim"
+                android:layout_gravity="center"
+                android:layout_centerInParent="true" />
+        </FrameLayout>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

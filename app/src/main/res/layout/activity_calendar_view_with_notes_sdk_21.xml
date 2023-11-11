@@ -58,7 +58,6 @@
             android:layout_margin="@dimen/fab_margin"
             app:elevation="-50dp"/>
 
-
         <ImageView
             android:id="@+id/imageView10"
             android:layout_width="65dp"
@@ -74,7 +73,6 @@
             android:importantForAccessibility="no"
             android:src="@drawable/add"
             android:layout_gravity="center"/>
-
     </FrameLayout>
 
     <LinearLayout
