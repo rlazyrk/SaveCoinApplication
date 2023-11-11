@@ -2,8 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/background"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="18dp">
 
     <EditText
         android:id="@+id/goalNameEditText"
@@ -16,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="numberDecimal"
-        android:hint="Goal amount" />
+        android:hint="Goal amount"/>
 
     <EditText
         android:id="@+id/dateEditText"
@@ -24,6 +25,6 @@
         android:layout_height="wrap_content"
         android:hint="Select a date"
         android:focusable="false"
-        android:clickable="true" />
+        android:clickable="true"/>
 
 </LinearLayout>
