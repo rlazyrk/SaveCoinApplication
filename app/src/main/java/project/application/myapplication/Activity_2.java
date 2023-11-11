@@ -35,9 +35,12 @@ public class Activity_2 extends AppCompatActivity {
     private String[] mShortMonths;
     private CalendarView mCalendarView;
     private CalendarDialog mCalendarDialog;
-    private float x1,x2,y1,y2;
+    private SpendingsDBOpenHelper mDB1;
 
+
+    private float x1,x2,y1,y2;
     private List<Event> mEventList = new ArrayList<>();
+
 
     public static Intent makeIntent(Context context) {
         return new Intent(context, Activity_2.class);
@@ -46,7 +49,7 @@ public class Activity_2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        mDB1 = new SpendingsDBOpenHelper(this);
         mShortMonths = new DateFormatSymbols().getShortMonths();
         mDB = new EventDBOpenHelper(this);
         mEventList=mDB.getall();
@@ -169,25 +172,13 @@ public class Activity_2 extends AppCompatActivity {
                         mCalendarView.addCalendarObject(parseCalendarObject(event));
                         mCalendarDialog.setEventList(mEventList);
                         mDB.insert(event.getDate(),event.getID(),event.getTitle(),event.getColor(),event.isCompleted());
-                        /* ПО ПЕРШЕ ПРИХОДИТЬ З ЗАПІЗНЕННЯМ В ХВИЛИНУ ЧЕРЕЗ ПОВІЛЬНІСТЬ ОБРОБКИ
-                        *  ПО ДРУГЕ ЧОМУСЬ ВОНО НЕ ДОЗВОЛЯЄ 2 ОДНОЧАСНО НОТИФІКАЦІЇ ТАК ЗАПУСКАТИ Я ХЗ ЧОГО*/
-                        //AlarmManager alarmManager0 = (AlarmManager) getSystemService(ALARM_SERVICE);
                         AlarmManager alarmManager1 = (AlarmManager) getSystemService(ALARM_SERVICE);
-
-                       // Intent intent0 = new Intent(this, MyReceiver.class);
-                        //intent0.setAction("your_notification_action");
-                        //intent0.putExtra("text", event.getTitle()+"\n u have 1 day until this");
-                        //intent0.putExtra("title","Event Reminder");
-                       // PendingIntent pendingIntent0 = PendingIntent.getBroadcast(this, 0, intent0, PendingIntent.FLAG_IMMUTABLE);
-
                         Intent intent1 = new Intent(this, MyReceiver.class);
                         intent1.setAction("your_notification_action");
                         intent1.putExtra("text", event.getTitle());
                         intent1.putExtra("title","Event Reminder");
-                        PendingIntent pendingIntent1 = PendingIntent.getBroadcast(this, 0, intent1, PendingIntent.FLAG_IMMUTABLE);
-                        //Calendar calendar = event.getDate();
-                        //calendar.add(Calendar.HOUR_OF_DAY, -24);
-                        //alarmManager0.set(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(), pendingIntent0);
+                        PendingIntent pendingIntent1 = PendingIntent.getBroadcast(this, mDB1.query(99), intent1, PendingIntent.FLAG_IMMUTABLE);
+                        mDB1.insert(1,99);
                         alarmManager1.set(AlarmManager.RTC_WAKEUP,event.getDate().getTimeInMillis(), pendingIntent1);
                         break;
                     }

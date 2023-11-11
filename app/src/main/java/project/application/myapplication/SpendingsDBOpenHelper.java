@@ -106,7 +106,7 @@ public class SpendingsDBOpenHelper extends SQLiteOpenHelper {
     }
 
     private void fillDatabaseWithData(SQLiteDatabase db) {
-
+         insert(1,99);
 
     }
 

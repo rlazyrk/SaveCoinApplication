@@ -29,6 +29,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
+import java.util.Random;
 
 import project.application.myapplication.allForGoals.Goal;
 import project.application.myapplication.allForGoals.GoalAdapter;
@@ -50,9 +51,11 @@ public class MainActivity extends AppCompatActivity {
     private EditText dateEditText;
     private Calendar calendar;
     private float x1,x2,y1,y2;
+
+
     private void scheduleDailyNotification() {
         // Определите время, в которое вы хотите показывать уведомление
-        int hour = 17; // Например, в 8 утра
+        int hour = 17;
         int minute = 55;
 
         // Создайте календарь для задания времени
@@ -60,6 +63,11 @@ public class MainActivity extends AppCompatActivity {
         notificationTime.set(Calendar.HOUR_OF_DAY, hour);
         notificationTime.set(Calendar.MINUTE, minute);
         notificationTime.set(Calendar.SECOND, 0);
+
+
+
+        // Get the random element from the array
+
 
         // Получите системный сервис AlarmManager
         AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
@@ -69,16 +77,16 @@ public class MainActivity extends AppCompatActivity {
 
         // Установите действие, которое будет использоваться в вашем BroadcastReceiver
         intent.setAction("your_notification_action");
-        intent.putExtra("text", "don`t forget about us");
         intent.putExtra("title", "MyDailyNotification");
+        intent.putExtra("text", "day");
         PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_IMMUTABLE);
 
-        // Установите повторение на каждый день
+
         long interval = 24 * 60 * 60 * 1000; // 24 часа
         long startTime = notificationTime.getTimeInMillis();
 
-        // Запланируйте уведомление с использованием AlarmManager
-        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, startTime, interval, pendingIntent);
+
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, 0, 10000, pendingIntent);
     }
 
     @SuppressLint("MissingInflatedId")
