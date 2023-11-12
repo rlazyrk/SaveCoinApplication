@@ -27,4 +27,16 @@
         android:focusable="false"
         android:clickable="true"/>
 
+    <Button
+        android:id="@+id/saveInputGoal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save" />
+
+    <Button
+        android:id="@+id/cancelInputGoal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cancel" />
+
 </LinearLayout>

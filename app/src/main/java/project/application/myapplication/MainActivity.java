@@ -140,9 +140,12 @@ public class MainActivity extends AppCompatActivity {
                 View dialogView = inflater.inflate(R.layout.dialog_input_goal, null);
                 builder.setView(dialogView);
 
-                final EditText goalNameEditText = dialogView.findViewById(R.id.goalNameEditText);
-                final EditText goalAmountEditText = dialogView.findViewById(R.id.goalAmountEditText);
-                final EditText dateEditText = dialogView.findViewById(R.id.dateEditText);
+                EditText goalNameEditText = dialogView.findViewById(R.id.goalNameEditText);
+                EditText goalAmountEditText = dialogView.findViewById(R.id.goalAmountEditText);
+                EditText dateEditText = dialogView.findViewById(R.id.dateEditText);
+                Button saveButton = dialogView.findViewById(R.id.saveInputGoal);
+                Button cancelButton = dialogView.findViewById(R.id.cancelInputGoal);
+                AlertDialog alertDialog = builder.create();
 
                 dateEditText.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -167,9 +170,9 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
-                builder.setPositiveButton("Save", new DialogInterface.OnClickListener() {
+                saveButton.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(DialogInterface dialog, int which) {
+                    public void onClick(View view) {
                         String goalName = goalNameEditText.getText().toString();
                         String goalAmountString = goalAmountEditText.getText().toString();
                         int goalAmount = Integer.parseInt(goalAmountString);
@@ -181,22 +184,20 @@ public class MainActivity extends AppCompatActivity {
                         goalList.clear();
                         goalList.addAll(goalsDBOpenHelper.getAllGoals());
                         goalAdapter.notifyDataSetChanged();
-                        dialog.dismiss();
+                        alertDialog.dismiss();
                     }
                 });
 
-                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                cancelButton.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(DialogInterface dialog, int which) {
+                    public void onClick(View view) {
                         goalNameEditText.setText("");
                         goalAmountEditText.setText("");
                         dateEditText.setText("");
-                        dialog.dismiss();
-                        dialog.dismiss();
+                        alertDialog.dismiss();
                     }
                 });
 
-                AlertDialog alertDialog = builder.create();
                 alertDialog.show();
             }
         });
