@@ -57,20 +57,30 @@ public class GoalAdapter extends RecyclerView.Adapter<GoalAdapter.GoalViewHolder
 
         holder.buttonAdd.setOnClickListener(v -> {
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
-            builder.setTitle("Enter a number");
+            builder.setTitle("Enter the amount to add");
+            
+            View dialogView = LayoutInflater.from(context).inflate(R.layout.goal_add_money_dialog, null);
 
-            final EditText input = new EditText(context);
+            builder.setView(dialogView);
+            AlertDialog dialog = builder.create();
+
+            EditText input = dialogView.findViewById(R.id.goalAddMoney);
             input.setInputType(InputType.TYPE_CLASS_NUMBER);
-            builder.setView(input);
+            Button saveButton = dialogView.findViewById(R.id.saveInputGoalAddMoney);
+            Button cancelButton = dialogView.findViewById(R.id.cancelInputGoalAddMoney);
 
-            builder.setPositiveButton("OK", (dialog, which) -> {
-                int number = Integer.parseInt(input.getText().toString());
-                int newAmount = goal.getCurrentAmount() + number;
-                updateGoalAmount(position, newAmount);
+            saveButton.setOnClickListener(view -> {
+                if (!input.getText().toString().isEmpty()) {
+                    int number = Integer.parseInt(input.getText().toString());
+                    int newAmount = goal.getCurrentAmount() + number;
+                    updateGoalAmount(position, newAmount);
+                    dialog.dismiss();
+                }
             });
-            builder.setNegativeButton("Cansel", (dialog, which) -> dialog.cancel());
 
-            builder.show();
+            cancelButton.setOnClickListener(view -> dialog.dismiss());
+
+            dialog.show();
         });
     }
 
