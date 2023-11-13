@@ -69,6 +69,6 @@ public class Goal {
     }
 
     public void setCurrentAmount(int newAmount){
-        this.goalAmount = newAmount;
+        this.currentAmount = newAmount;
     }
 }
