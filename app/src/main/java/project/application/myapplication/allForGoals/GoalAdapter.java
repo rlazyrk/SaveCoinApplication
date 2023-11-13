@@ -57,7 +57,7 @@ public class GoalAdapter extends RecyclerView.Adapter<GoalAdapter.GoalViewHolder
 
         holder.buttonAdd.setOnClickListener(v -> {
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
-            builder.setTitle("Enter the amount to add");
+            builder.setTitle("");
             
             View dialogView = LayoutInflater.from(context).inflate(R.layout.goal_add_money_dialog, null);
 

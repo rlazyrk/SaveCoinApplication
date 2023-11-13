@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/background"
+    android:background="#D9D9D9"
     android:orientation="vertical"
     android:padding="18dp">
 
@@ -10,6 +10,7 @@
         android:id="@+id/goalNameEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textStyle="bold"
         android:hint="Goal name" />
 
     <EditText
@@ -17,26 +18,38 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="numberDecimal"
+        android:textStyle="bold"
         android:hint="Goal amount"/>
 
     <EditText
         android:id="@+id/dateEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textStyle="bold"
         android:hint="Select a date"
         android:focusable="false"
         android:clickable="true"/>
-
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
     <Button
         android:id="@+id/saveInputGoal"
-        android:layout_width="match_parent"
+        android:layout_width="120dp"
+        android:layout_alignParentEnd="true"
         android:layout_height="wrap_content"
+        android:background="@drawable/round_button"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="7dp"
         android:text="Save" />
 
     <Button
         android:id="@+id/cancelInputGoal"
-        android:layout_width="match_parent"
+        android:layout_width="120dp"
+        android:layout_alignParentStart="true"
         android:layout_height="wrap_content"
+        android:background="@drawable/round_button"
+        android:layout_marginTop="7dp"
         android:text="Cancel" />
+</RelativeLayout>
 
 </LinearLayout>
