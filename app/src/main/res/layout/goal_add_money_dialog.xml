@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/background"
+
+    android:background="#D9D9D9"
     android:orientation="vertical"
     android:padding="18dp">
 
@@ -10,18 +11,30 @@
         android:id="@+id/goalAddMoney"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Goal name" />
+        android:textStyle="bold"
+        android:hint="Enter money"
+        android:layout_marginBottom="7dp"/>
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
 
     <Button
         android:id="@+id/saveInputGoalAddMoney"
-        android:layout_width="match_parent"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/round_button"
         android:text="Save" />
+
+
 
     <Button
         android:id="@+id/cancelInputGoalAddMoney"
-        android:layout_width="match_parent"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/round_button"
         android:text="Cancel" />
-
+</RelativeLayout>
 </LinearLayout>
