@@ -6,15 +6,18 @@ import static java.lang.Math.abs;
 
 import android.app.Activity;
 import android.app.AlarmManager;
+import android.app.Dialog;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ProgressBar;
 
 
 import org.hugoandrade.calendarviewlib.CalendarView;
@@ -36,6 +39,7 @@ public class Activity_2 extends AppCompatActivity {
     private CalendarView mCalendarView;
     private CalendarDialog mCalendarDialog;
     private SpendingsDBOpenHelper mDB1;
+    private Dialog overlayDialog;
 
     int i = 2;
     private float x1,x2,y1,y2;
@@ -49,6 +53,12 @@ public class Activity_2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_calendar_view_with_notes_sdk_21);
+
+        overlayDialog = new Dialog(this, android.R.style.Theme_Translucent_NoTitleBar);
+        overlayDialog.setContentView(R.layout.progress_overlay);
+        overlayDialog.setCancelable(false);
+
         mDB1 = new SpendingsDBOpenHelper(this);
         mShortMonths = new DateFormatSymbols().getShortMonths();
         mDB = new EventDBOpenHelper(this);
@@ -57,7 +67,6 @@ public class Activity_2 extends AppCompatActivity {
     }
 
     private void initializeUI() {
-
         setContentView(R.layout.activity_calendar_view_with_notes_sdk_21);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -125,6 +134,7 @@ public class Activity_2 extends AppCompatActivity {
     }
 
     private void onEventSelected(Event event) {
+
         Activity context = Activity_2.this;
         Intent intent = CreateEventActivity.makeIntent(context, event);
 
@@ -161,6 +171,7 @@ public class Activity_2 extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
         if (requestCode == CREATE_EVENT_REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
                 int action = CreateEventActivity.extractActionFromIntent(data);
@@ -197,8 +208,6 @@ public class Activity_2 extends AppCompatActivity {
                             mCalendarView.removeCalendarObjectByID(parseCalendarObject(oldEvent));
                             mCalendarView.addCalendarObject(parseCalendarObject(event));
                             mCalendarDialog.setEventList(mEventList);
-
-
                         }
                         break;
                     }
@@ -240,7 +249,6 @@ public class Activity_2 extends AppCompatActivity {
                 event.getDate(),
                 event.getTitle(),
                 event.getColor());
-
     }
 
     @Override
@@ -253,13 +261,27 @@ public class Activity_2 extends AppCompatActivity {
             case MotionEvent.ACTION_UP:
                 x2 = event.getX();
                 y2 = event.getY();
-                if(x1 > x2 && abs(x1-x2)>300){
-                    Intent i = new Intent(Activity_2.this, Activity_3.class);
-                    startActivity(i);
-                    overridePendingTransition(R.xml.slide_left_start, R.xml.slide_left_end);
+                if(x1 > x2 && abs(x1 - x2) > 300){
+                    showOverlayDialog();
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            Intent i = new Intent(Activity_2.this, Activity_3.class);
+                            startActivity(i);
+                            overridePendingTransition(R.xml.slide_left_start, R.xml.slide_left_end);
+                            hideOverlayDialog();
+                        }
+                    }, 500); // Adjust the delay time as needed
                 }
         }
         return false;
     }
 
+    private void showOverlayDialog() {
+        overlayDialog.show();
+    }
+
+    private void hideOverlayDialog() {
+        overlayDialog.dismiss();
+    }
 }

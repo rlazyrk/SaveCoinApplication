@@ -19,6 +19,14 @@
         app:layout_constraintVertical_bias="0.0"
         android:background="#26292B"/>
 
+    <ProgressBar
+        android:id="@+id/loadingIndicatorSpend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        tools:ignore="MissingConstraints" />
+
     <FrameLayout
         android:id="@+id/frameLayout"
         android:layout_width="wrap_content"
