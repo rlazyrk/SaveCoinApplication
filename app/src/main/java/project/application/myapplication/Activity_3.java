@@ -4,14 +4,21 @@ import static java.lang.Math.abs;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.text.DateFormatSymbols;
 
 public class Activity_3 extends AppCompatActivity {
 
@@ -53,12 +60,17 @@ public class Activity_3 extends AppCompatActivity {
     private SpendingsDBOpenHelper mDB;
     private Integer sumOfAllint = 0;
     private float x1, x2, y1, y2;
-
+    private Dialog overlayDialog;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_3);
+
+        overlayDialog = new Dialog(this, android.R.style.Theme_Translucent_NoTitleBar);
+        overlayDialog.setContentView(R.layout.progress_overlay);
+        overlayDialog.setCancelable(false);
+
         goToMain = findViewById(R.id.goToMain);
         goToActivity_2 = findViewById(R.id.goToActivity_2);
         goToActivity_3 = findViewById(R.id.goToActivity_3);
@@ -255,7 +267,6 @@ public class Activity_3 extends AppCompatActivity {
         goToActivity_3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
             }
 
         });
@@ -278,17 +289,38 @@ public class Activity_3 extends AppCompatActivity {
             case MotionEvent.ACTION_UP:
                 x2 = event.getX();
                 y2 = event.getY();
-                if (x1 < x2 && abs(x1-x2)>300) {
-                    Intent i = new Intent(Activity_3.this, Activity_2.class);
-                    startActivity(i);
-                    overridePendingTransition(R.xml.slide_right_start, R.xml.slide_right_end);
-                } else if (x1 > x2 && abs(x1-x2)>300) {
-
-                    Intent i = new Intent(Activity_3.this, MainActivity.class);
-                    startActivity(i);
-                    overridePendingTransition(R.xml.slide_left_start, R.xml.slide_left_end);
+                if (x1 < x2 && abs(x1 - x2) > 200) {
+                    showOverlayDialog();
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            Intent i = new Intent(Activity_3.this, Activity_2.class);
+                            startActivity(i);
+                            overridePendingTransition(R.xml.slide_right_start, R.xml.slide_right_end);
+                            hideOverlayDialog();
+                        }
+                    }, 500); // Adjust the delay time as needed
+                } else if (x1 > x2 && abs(x1 - x2) > 300) {
+                    showOverlayDialog();
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            Intent i = new Intent(Activity_3.this, MainActivity.class);
+                            startActivity(i);
+                            overridePendingTransition(R.xml.slide_left_start, R.xml.slide_left_end);
+                            hideOverlayDialog();
+                        }
+                    }, 500); // Adjust the delay time as needed
                 }
         }
         return false;
+    }
+
+    private void showOverlayDialog() {
+        overlayDialog.show();
+    }
+
+    private void hideOverlayDialog() {
+        overlayDialog.dismiss();
     }
 }
