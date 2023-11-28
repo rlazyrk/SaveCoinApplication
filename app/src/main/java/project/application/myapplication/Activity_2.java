@@ -159,12 +159,14 @@ public class Activity_2 extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_today: {
-                mCalendarView.setSelectedDate(Calendar.getInstance());
-                return true;
-            }
+        if (item.getItemId() == R.id.action_today) {
+            mCalendarView.setSelectedDate(Calendar.getInstance());
+            // Additional code for handling the case if needed
+            // ...
+            // Return true if the case is handled successfully
+            return true;
         }
+
 
         return super.onOptionsItemSelected(item);
     }
@@ -284,4 +286,6 @@ public class Activity_2 extends AppCompatActivity {
     private void hideOverlayDialog() {
         overlayDialog.dismiss();
     }
+
+
 }

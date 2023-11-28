@@ -18,6 +18,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.identity.SignInCredential;
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.text.DateFormatSymbols;
 
 public class Activity_3 extends AppCompatActivity {
@@ -61,6 +64,7 @@ public class Activity_3 extends AppCompatActivity {
     private Integer sumOfAllint = 0;
     private float x1, x2, y1, y2;
     private Dialog overlayDialog;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -323,4 +327,7 @@ public class Activity_3 extends AppCompatActivity {
     private void hideOverlayDialog() {
         overlayDialog.dismiss();
     }
+
+    // Creates a button that mimics a crash when pressed
+
 }

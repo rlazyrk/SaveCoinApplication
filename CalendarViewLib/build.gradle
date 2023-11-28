@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 
 android {
-
+    namespace 'org.hugoandrade.calendarviewlib'
     compileSdk 33
 
     defaultConfig {
@@ -10,8 +10,6 @@ android {
 
 
         targetSdkVersion 33
-        versionCode 1
-        versionName version
     }
 
     buildTypes {
