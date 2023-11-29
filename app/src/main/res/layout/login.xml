@@ -3,17 +3,81 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:background="#191919">
 
-    <Button
-        android:id="@+id/button_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Login to us"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+    <FrameLayout
+        android:id="@+id/button_login_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.5"
-        app:layout_constraintHorizontal_bias="0.5"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        android:layout_gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome to app!"
+            android:textColor="@color/white"
+            android:textSize="28dp"
+            android:layout_gravity="center|top"
+            android:layout_marginTop="40dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:fontFamily="@font/baloo_chettan"
+            android:textFontWeight="500">
+        </TextView>
+
+        <ImageView
+            android:layout_width="195dp"
+            android:layout_height="195dp"
+            android:textColor="@color/white"
+            android:layout_gravity="top|center"
+            android:layout_marginTop="120dp"
+            android:src="@drawable/savecoin"/>
+
+        <Button
+            android:id="@+id/button_login"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:background="@drawable/login_circle"
+            android:textColor="@color/white"
+            android:padding="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.5"
+            app:layout_constraintHorizontal_bias="0.5"
+            android:gravity="center|center_horizontal"
+            android:layout_gravity="center_horizontal|center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:fontFamily="@font/baloo_chettan"
+            android:textFontWeight="500"/>
+
+        <Button
+            android:id="@+id/button_without_login"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:text="Continue without login"
+            android:background="@drawable/without_login_circle"
+            android:textColor="@color/white"
+            android:padding="16dp"
+            android:layout_gravity="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.0"
+            android:layout_marginTop="80dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:fontFamily="@font/baloo_chettan"
+            android:textFontWeight="500"/>
+    </FrameLayout>
 </LinearLayout>
