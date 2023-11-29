@@ -50,12 +50,17 @@ public class LoginActivity extends AppCompatActivity {
     private boolean showOneTapUI = true;
 
     Button button;
+
+    Button miwa;
+
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         setContentView(R.layout.login);
+        miwa=findViewById(R.id.button_without_login);
         button = findViewById(R.id.button_login);
         oneTapClient = Identity.getSignInClient(this);
         signUpRequest = BeginSignInRequest.builder()
@@ -136,6 +141,16 @@ public class LoginActivity extends AppCompatActivity {
                             }
                         });
             }
+        });
+
+        miwa.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                FirebaseUser user = mAuth.getCurrentUser();
+                Intent click = new Intent(LoginActivity.this, Activity_3.class);
+                startActivity(click);
+            }
+
         });
     }
 

@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
         long startTime = notificationTime.getTimeInMillis();
 
 
-        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, 0, 10000, pendingIntent);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, startTime, interval, pendingIntent);
     }
 
     @SuppressLint("MissingInflatedId")
@@ -118,24 +118,6 @@ public class MainActivity extends AppCompatActivity {
 
         Button showInputDialogButton = findViewById(R.id.showInputDialogButton);
 
-//        Button notificationButton = findViewById(R.id.notificationButton);
-
-//        notificationButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-//                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-//                    NotificationChannel channel = new NotificationChannel("default", "Default", NotificationManager.IMPORTANCE_DEFAULT);
-//                    notificationManager.createNotificationChannel(channel);
-//                }
-//                NotificationCompat.Builder builder = new NotificationCompat.Builder(MainActivity.this, "default")
-//                        .setSmallIcon(R.drawable.ic_launcher_background)
-//                        .setContentTitle("My notification")
-//                        .setContentText("Hello World!")
-//                        .setPriority(NotificationCompat.PRIORITY_DEFAULT);
-//                notificationManager.notify(0, builder.build());
-//            }
-//        });
 
         showInputDialogButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -211,16 +193,32 @@ public class MainActivity extends AppCompatActivity {
         goToActivity_2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent click = new Intent(MainActivity.this, Activity_2.class);
-                startActivity(click);
+                showOverlayDialog();
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent i = new Intent(MainActivity.this, Activity_2.class);
+                        startActivity(i);
+                        overridePendingTransition(R.xml.slide_right_start, R.xml.slide_right_end);
+                        hideOverlayDialog();
+                    }
+                }, 500); // Adjust the delay time as needed
             }
         });
 
         goToActivity_3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent click = new Intent(MainActivity.this, Activity_3.class);
-                startActivity(click);
+                showOverlayDialog();
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent i = new Intent(MainActivity.this, Activity_3.class);
+                        startActivity(i);
+                        overridePendingTransition(R.xml.slide_right_start, R.xml.slide_right_end);
+                        hideOverlayDialog();
+                    }
+                }, 500); // Adjust the delay time as needed
             }
         });
 
