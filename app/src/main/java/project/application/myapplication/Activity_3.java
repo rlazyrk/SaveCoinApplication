@@ -153,7 +153,6 @@ public class Activity_3 extends AppCompatActivity {
                     expensesType_2 = mDB.query(2);
                     viewType_2.setText(expensesType_2.toString());
                     sumOfAllint = mDB.querySum(9);
-//                    viewSumOfAll.setText(sumOfAllint.toString());
                 }
             }
         });
@@ -264,24 +263,42 @@ public class Activity_3 extends AppCompatActivity {
         goToMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent click = new Intent(Activity_3.this, MainActivity.class);
-                startActivity(click);
+                showOverlayDialog();
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent i = new Intent(Activity_3.this, MainActivity.class);
+                        startActivity(i);
+                        overridePendingTransition(R.xml.slide_left_start, R.xml.slide_left_end);
+                        hideOverlayDialog();
+                    }
+                }, 500);
             }
         });
         goToActivity_3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
             }
 
         });
         goToActivity_2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent click = new Intent(Activity_3.this, Activity_2.class);
-                startActivity(click);
+                showOverlayDialog();
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent i = new Intent(Activity_3.this, Activity_2.class);
+                        startActivity(i);
+                        overridePendingTransition(R.xml.slide_right_start, R.xml.slide_right_end);
+                        hideOverlayDialog();
+                    }
+                }, 500); // Adjust the delay time as needed
             }
         });
     }
+
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {

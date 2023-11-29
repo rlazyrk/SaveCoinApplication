@@ -13,10 +13,12 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ProgressBar;
 
 
@@ -26,8 +28,15 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Objects;
+
+import androidx.activity.result.IntentSenderRequest;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
+import com.google.android.gms.auth.api.identity.BeginSignInResult;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class Activity_2 extends AppCompatActivity {
@@ -50,6 +59,8 @@ public class Activity_2 extends AppCompatActivity {
         return new Intent(context, Activity_2.class);
     }
 
+    Button miwa1;
+    Button miwa2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,6 +75,40 @@ public class Activity_2 extends AppCompatActivity {
         mDB = new EventDBOpenHelper(this);
         mEventList=mDB.getall();
         initializeUI();
+        miwa1=findViewById(R.id.goToActivity_3);
+        miwa2=findViewById(R.id.goToMain);
+        miwa1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showOverlayDialog();
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent i = new Intent(Activity_2.this, Activity_3.class);
+                        startActivity(i);
+                        overridePendingTransition(R.xml.slide_left_start, R.xml.slide_left_end);
+                        hideOverlayDialog();
+                    }
+                }, 500); // Adjust the delay time as needed
+            }
+        });
+
+        miwa2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showOverlayDialog();
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent i = new Intent(Activity_2.this, MainActivity.class);
+                        startActivity(i);
+                        overridePendingTransition(R.xml.slide_left_start, R.xml.slide_left_end);
+                        hideOverlayDialog();
+                    }
+                }, 500);
+            }
+        });
+
     }
 
     private void initializeUI() {
@@ -286,6 +331,8 @@ public class Activity_2 extends AppCompatActivity {
     private void hideOverlayDialog() {
         overlayDialog.dismiss();
     }
+
+
 
 
 }

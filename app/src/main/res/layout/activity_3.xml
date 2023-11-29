@@ -667,26 +667,26 @@
 
         <FrameLayout
             android:layout_width="137dp"
-            android:layout_height="55dp"
-            android:background="#2F3136"
+            android:layout_height="45dp"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
             android:layout_marginStart="45dp"
+            android:background="#2F3136"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            android:layout_gravity="center"
-            android:layout_centerInParent="true">
+            app:layout_constraintVertical_bias="0.0">
 
             <Button
                 android:id="@+id/goToActivity_3"
                 android:layout_width="50dp"
-                android:layout_gravity="center"
                 android:layout_height="50dp"
-                android:importantForAccessibility="no"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
                 android:background="@drawable/wallet"
-                android:layout_centerInParent="true"/>
+                android:importantForAccessibility="no" />
 
         </FrameLayout>
 
