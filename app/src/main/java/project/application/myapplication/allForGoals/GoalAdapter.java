@@ -18,14 +18,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import project.application.myapplication.R;
-//FIXME не працює зміна цілі та додавання будь чого в ціль
-//FIXME
-//FIXME
-//FIXME
-//FIXME
-//FIXME
-//FIXME
-//FIXME
 public class GoalAdapter extends RecyclerView.Adapter<GoalAdapter.GoalViewHolder> {
 
     private List<Goal> goalList;
@@ -57,7 +49,7 @@ public class GoalAdapter extends RecyclerView.Adapter<GoalAdapter.GoalViewHolder
 
         holder.buttonAdd.setOnClickListener(v -> {
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
-            builder.setTitle("Enter the amount to add");
+            builder.setTitle("");
             
             View dialogView = LayoutInflater.from(context).inflate(R.layout.goal_add_money_dialog, null);
 

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1054566507347",
+    "project_id": "savecoin-68be4",
+    "storage_bucket": "savecoin-68be4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1054566507347:android:459220e3652237c86f77a6",
+        "android_client_info": {
+          "package_name": "project.application.myapplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHkJQKUBCHu_c0Vhoi4xduJjdnlBbghQA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

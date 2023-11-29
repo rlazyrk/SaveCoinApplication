@@ -6,6 +6,7 @@ import android.annotation.SuppressLint;
 import android.app.AlarmManager;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -13,6 +14,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -47,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
     private GoalAdapter goalAdapter;
     private List<Goal> goalList;
     private GoalsDBOpenHelper goalsDBOpenHelper;
-
+    private Dialog overlayDialog;
     private EditText dateEditText;
     private Calendar calendar;
     private float x1,x2,y1,y2;
@@ -64,10 +66,7 @@ public class MainActivity extends AppCompatActivity {
         notificationTime.set(Calendar.MINUTE, minute);
         notificationTime.set(Calendar.SECOND, 0);
 
-
-
         // Get the random element from the array
-
 
         // Получите системный сервис AlarmManager
         AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
@@ -94,6 +93,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        overlayDialog = new Dialog(this, android.R.style.Theme_Translucent_NoTitleBar);
+        overlayDialog.setContentView(R.layout.progress_overlay);
+        overlayDialog.setCancelable(false);
+
         goalsDBOpenHelper = new GoalsDBOpenHelper(this);
         setContentView(R.layout.activity_main);
         dateEditText = findViewById(R.id.dateEditText);
@@ -240,13 +245,26 @@ public class MainActivity extends AppCompatActivity {
                 x2 = event.getX();
                 y2 = event.getY();
                 if(x1 < x2 && abs(x1-x2)>300){
-                    Intent i = new Intent(MainActivity.this, Activity_3.class);
-                    startActivity(i);
-                    overridePendingTransition(R.xml.slide_right_start, R.xml.slide_right_end);
+                    showOverlayDialog();
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            Intent i = new Intent(MainActivity.this, Activity_3.class);
+                            startActivity(i);
+                            overridePendingTransition(R.xml.slide_right_start, R.xml.slide_right_end);
+                            hideOverlayDialog();
+                        }
+                    }, 500); // Adjust the delay time as needed
                 }
         }
         return false;
     }
 
-}
+    private void showOverlayDialog() {
+        overlayDialog.show();
+    }
 
+    private void hideOverlayDialog() {
+        overlayDialog.dismiss();
+    }
+}
