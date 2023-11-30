@@ -32,4 +32,10 @@
     <string name="no_events">no events</string>
     <string name="delete">delete</string>
     <string name = "miwa">1054566507347-9e7dt5jji3k5e51aqidr2heolk4rqu91.apps.googleusercontent.com</string>
+    <string-array name="options_array">
+        <item>For all time</item>
+        <item>For 7 days</item>
+        <item>For 30 days</item>
+        <item>For the year</item>
+    </string-array>
 </resources>

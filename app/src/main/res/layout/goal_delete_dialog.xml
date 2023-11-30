@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:background="#D9D9D9"
+    android:orientation="vertical"
+    android:padding="18dp">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/confirm_button_delete_goal"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/round_button"
+            android:text="Confirm" />
+
+
+
+        <Button
+            android:id="@+id/cancel_button_delete_goal"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:background="@drawable/round_button"
+            android:text="Cancel" />
+    </RelativeLayout>
+</LinearLayout>

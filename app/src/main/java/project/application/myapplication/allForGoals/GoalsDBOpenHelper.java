@@ -14,10 +14,7 @@ import java.util.List;
 
 import project.application.myapplication.SpendingsDBOpenHelper;
 
-//FIXME
-//FIXME
-//FIXME
-//FIXME
+
 public class GoalsDBOpenHelper extends SQLiteOpenHelper {
 
     private static final String TAG = SpendingsDBOpenHelper.class.getSimpleName();
@@ -105,7 +102,13 @@ public class GoalsDBOpenHelper extends SQLiteOpenHelper {
         return goalsList;
     }
 
-    //FIXME не працює зміна цілі та додавання будь чого в ціль
+    public void deleteGoal(long goalId) {
+        try (SQLiteDatabase db = this.getWritableDatabase()) {
+            db.delete(GOALS_LIST_TABLE, KEY_ID + " = ?", new String[]{String.valueOf(goalId)});
+        } catch (SQLException e) {
+            Log.e(TAG, "Помилка при видаленні цілі", e);
+        }
+    }
     public void updateGoal(Goal updatedGoal) {
         try (SQLiteDatabase db = this.getWritableDatabase()) {
             ContentValues values = new ContentValues();
