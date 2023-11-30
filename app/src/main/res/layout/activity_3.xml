@@ -515,56 +515,28 @@
         android:id="@+id/frameLayout10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="380dp"
-        android:background="#26292B"
+        android:layout_marginTop="400dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.83"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="0.0"
+        android:background="@drawable/spending_rectangle"
+        android:backgroundTint="#A2B2EE" >
 
-        <TextView
-            android:id="@+id/imageView20"
-            android:layout_width="80dp"
-            android:layout_height="45dp"
-            android:layout_marginStart="65dp"
-            android:layout_marginTop="22dp"
-            android:adjustViewBounds="true"
-            android:background="@drawable/round_rectangle_right" />
-
-        <TextView
-            android:id="@+id/text10"
+        <Spinner
+            android:id="@+id/spinnerOptions"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="75dp"
-            android:layout_marginTop="32dp"
-            android:text="add"
-            android:textSize="18sp"
+            android:layout_height="45dp"
+            android:layout_centerInParent="true"
             android:gravity="center"
-            android:layout_gravity="start"
-            tools:ignore="HardcodedText"
-            android:textStyle="bold"
-            android:textAllCaps="true"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
-
-        <ImageView
-            android:id="@+id/imageView10"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_marginStart="1dp"
-            android:layout_marginTop="10dp"
-            android:adjustViewBounds="true"
-            android:background="@drawable/circle_w_corner" />
-
-        <ImageView
-            android:id="@+id/icon10"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="23dp"
-            android:src="@drawable/add"
-            android:importantForAccessibility="no" />
+            app:layout_constraintBottom_toTopOf="@+id/enterType_1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.598"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageView11"
+            app:layout_constraintVertical_bias="0.953" />
     </FrameLayout>
 
 
@@ -700,17 +672,5 @@
             android:layout_gravity="center"
             android:layout_centerInParent="true"/>
     </LinearLayout>
-
-    <Spinner
-        android:id="@+id/spinnerOptions"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        app:layout_constraintBottom_toTopOf="@+id/enterType_1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView11"
-        app:layout_constraintVertical_bias="0.953" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
