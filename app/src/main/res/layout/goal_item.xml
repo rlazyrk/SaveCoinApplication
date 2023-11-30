@@ -22,8 +22,9 @@
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:indeterminate="false" />
+        android:layout_height="5dp"
+        android:indeterminate="false"
+        />
 
     <TextView
         android:id="@+id/goalAmount"
@@ -43,19 +44,41 @@
         android:textSize="16sp"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
 
-    <Button
-        android:id="@+id/buttonAdd"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:paddingRight="10dp"
-        android:paddingLeft="10dp"
-        android:text="Add money to your goal"
-        android:background="@drawable/button_add_money_to_your_goal"
-        android:textColor="@color/black"
-        android:textSize="10sp"
-        android:layout_marginLeft="-3dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="-2dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/buttonAdd"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="-3dp"
+            android:layout_marginTop="-2dp"
+            android:background="@drawable/button_add_money_to_your_goal"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="Add money to your goal"
+            android:textColor="@color/black"
+            android:textSize="10sp" />
+
+        <Button
+            android:id="@+id/buttonDelete"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:text="Delete Goal"
+            android:background="@drawable/button_add_money_to_your_goal"
+            android:textColor="@color/black"
+            android:textSize="10sp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="-2dp" />
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/endDate"

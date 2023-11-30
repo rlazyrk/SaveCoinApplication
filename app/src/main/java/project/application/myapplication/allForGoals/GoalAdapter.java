@@ -82,6 +82,28 @@ public class GoalAdapter extends RecyclerView.Adapter<GoalAdapter.GoalViewHolder
 
             dialog.show();
         });
+
+        holder.buttonDelete.setOnClickListener(v -> {
+            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+            builder.setTitle("");
+
+            View dialogView = LayoutInflater.from(context).inflate(R.layout.goal_delete_dialog, null);
+
+            builder.setView(dialogView);
+            AlertDialog dialog = builder.create();
+
+            Button confirmButton = dialogView.findViewById(R.id.confirm_button_delete_goal);
+            Button cancelButton = dialogView.findViewById(R.id.cancel_button_delete_goal);
+
+            confirmButton.setOnClickListener(view -> {
+                deleteGoal(position);
+                dialog.dismiss();
+            });
+
+            cancelButton.setOnClickListener(view -> dialog.dismiss());
+
+            dialog.show();
+        });
     }
 
     @Override
@@ -98,6 +120,8 @@ public class GoalAdapter extends RecyclerView.Adapter<GoalAdapter.GoalViewHolder
         ProgressBar progressBar;
         Button buttonAdd;
 
+        Button buttonDelete;
+
         public GoalViewHolder(@NonNull View itemView) {
             super(itemView);
             goalName = itemView.findViewById(R.id.goalName);
@@ -106,14 +130,31 @@ public class GoalAdapter extends RecyclerView.Adapter<GoalAdapter.GoalViewHolder
             progressBar = itemView.findViewById(R.id.progressBar);
             buttonAdd = itemView.findViewById(R.id.buttonAdd);
             goalAmount = itemView.findViewById(R.id.goalAmount);
+            buttonDelete = itemView.findViewById(R.id.buttonDelete);
         }
     }
 
-    public void updateGoalAmount(int position, int newAmount) {
+    private void updateGoalAmount(int position, int newAmount) {
         Goal goal = goalList.get(position);
         goal.setCurrentAmount(newAmount);
         notifyDataSetChanged();
         goalsDBOpenHelper.updateGoal(goal);
+    }
+    public void deleteGoal(int position) {
+        Goal goal = goalList.get(position);
+        long goalId = goal.getId();
+        deleteGoalFromList(position);
+        deleteGoalFromDatabase(goalId);
+    }
+
+    private void deleteGoalFromList(int position) {
+        goalList.remove(position);
+        notifyItemRemoved(position);
+        notifyItemRangeChanged(position, getItemCount());
+    }
+
+    private void deleteGoalFromDatabase(long goalId) {
+        goalsDBOpenHelper.deleteGoal(goalId);
     }
 }
 

@@ -51,6 +51,13 @@ public class SpendingsDBOpenHelper extends SQLiteOpenHelper {
         return sum;
     }
 
+    public int queryForFewDays(int categ, int days){
+        int sum = 0;
+        for(int i = 0; i <=days ; i++){
+            sum += query2(categ, i);
+        }
+        return sum;
+    }
     public int query2(int categ,int days) {// if days =1 than it will take data for yesterday
         String name_of_sum = "total_sum";
         Calendar calendar=Calendar.getInstance();
@@ -106,7 +113,7 @@ public class SpendingsDBOpenHelper extends SQLiteOpenHelper {
     }
 
     private void fillDatabaseWithData(SQLiteDatabase db) {
-         insert(1,99);
+        insert(1,99);
 
     }
 
